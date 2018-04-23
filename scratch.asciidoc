@@ -8,4 +8,4 @@ Object model:
 
 We do not want a DOM; if we wanted that, we could just use libxml2 or similar with a validation pass with an xsd. Also, DOMs are pretty terrible to actually program against.
 
-Defeasible logic is in a large sense firstorderizable, so we could write an encoding into SQL form. Then quesries, alterations etc could just use SQL, and we could use a db connection for FFI.
+Defeasible logic is in a large sense firstorderizable, so we could write an encoding into SQL form. Then queries, alterations etc could just use SQL, and we could use a db connection for object model interrogation, stored programs for specific predefined 'object operations', and pipes/command line invocation for the initial population of a db.
