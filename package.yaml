@@ -1,7 +1,7 @@
 name:                legalruleml-thinger
 version:             0.1.0.0
 github:              "flaviusb/legalruleml-thinger"
-license:             GPLv3
+license:             GPL-3
 author:              "Justin (:flaviusb) Marsh"
 maintainer:          "justin.marsh@flaviusb.net"
 copyright:           "Justin (:flaviusb) Marsh 2018"
