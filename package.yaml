@@ -22,6 +22,8 @@ description:         Please see the README on GitHub at <https://github.com/flav
 dependencies:
 - base >= 4.7 && < 5
 - hxt >= 9.0
+- text >=0.11 && <2.0
+- optparse-applicative
 
 library:
   source-dirs: src
