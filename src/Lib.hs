@@ -19,8 +19,9 @@ data Statement_ed = Statement_ed { statement_category :: StatementCategory, stre
 --                        map (\stmt -> Statement_ed (statement_type stmt) "" "" "") statement_s
 
 statement_er doc = proc doc -> do
+                     sc <- arr statement_type -< "PrescriptiveStatement"
                      returnA -< Statement_ed {
-                       statement_category = PrescriptiveStatement,
+                       statement_category = sc,
                        strength = "defeasible",
                        key = "",
                        formula_frag_id = "0" }
