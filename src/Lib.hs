@@ -5,6 +5,7 @@ module Lib
     ) where
 
 import Text.XML.HXT.Core
+import Control.Arrow.ArrowList (listA)
 import Data.Text (Text, pack)
 
 someFunc :: IO ()
@@ -18,13 +19,18 @@ data Statement_ed = Statement_ed { statement_category :: StatementCategory, stre
 -- statement_er doc = let statement_s = ((multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstituiveStatement")))) doc) in
 --                        map (\stmt -> Statement_ed (statement_type stmt) "" "" "") statement_s
 
-statement_er doc = proc doc -> do
-                     sc <- arr statement_type -< "PrescriptiveStatement"
-                     returnA -< Statement_ed {
-                       statement_category = sc,
-                       strength = "defeasible",
-                       key = "",
-                       formula_frag_id = "0" }
+all_statement_er = multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstituiveStatement"))) >>>
+  proc stmt -> do
+    processed <- arr statement_er -< stmt
+    returnA -< processed
+
+statement_er stmt = proc stmt -> do
+                      sc <- arr statement_type -< "PrescriptiveStatement"
+                      returnA -< Statement_ed {
+                        statement_category = sc,
+                        strength = "defeasible",
+                        key = "",
+                        formula_frag_id = "0" }
 
 statement_type :: Text -> StatementCategory
 statement_type = \case
