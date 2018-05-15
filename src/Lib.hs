@@ -1,19 +1,16 @@
 {-# Language TemplateHaskell, QuasiQuotes, FlexibleContexts, DeriveDataTypeable, Haskell2010, OverloadedStrings, Arrows, NoMonomorphismRestriction, LambdaCase #-}
 
 module Lib
-    ( someFunc
+    ( parseXML, all_statement_er, Statement_ed
     ) where
 
 import Text.XML.HXT.Core
 import Control.Arrow.ArrowList (listA)
 import Data.Text (Text, pack)
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
-
 data StatementCategory = PrescriptiveStatement | ConstituiveStatement deriving (Show, Eq)
 
-data Statement_ed = Statement_ed { statement_category :: StatementCategory, strength, key, formula_frag_id :: Text}
+data Statement_ed = Statement_ed { statement_category :: StatementCategory, strength, key, formula_frag_id :: Text} deriving (Show, Eq)
 
 -- statement_er :: XmlTree -> [Statement_ed]
 -- statement_er doc = let statement_s = ((multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstituiveStatement")))) doc) in
