@@ -38,3 +38,7 @@ statement_type = \case
                            "PrescriptiveStatement" -> PrescriptiveStatement
                            "ConstituiveStatement"  -> ConstituiveStatement
                            _                       -> error "Not a statement"
+
+parseXML file = readDocument [ withValidate no
+                             , withRemoveWS yes  -- throw away formating WS
+                             ] file
