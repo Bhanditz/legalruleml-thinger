@@ -25,7 +25,8 @@ all_statement_er = multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (has
     returnA -< processed
 
 statement_er stmt = proc stmt -> do
-                      sc <- arr statement_type -< "PrescriptiveStatement"
+                      tagname <- getName -< stmt
+                      sc <- arr statement_type -< pack tagname
                       returnA -< Statement_ed {
                         statement_category = sc,
                         strength = "defeasible",
