@@ -1,0 +1,288 @@
+<lrml:PrescriptiveStatement key="r1">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>building has floors</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Negation>
+          <ruleml:Rel>ground floor</ruleml:Rel>
+        </ruleml:Negation>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <lrml:Obligation>
+        <ruleml:Atom>
+          <ruleml:Rel>
+            floor has emergency stairs
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </lrml:Obligation>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:PrescriptiveStatement>
+
+<lrml:PrescriptiveStatement key="r2">
+  <ruleml:Rule strength="defeater">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>ground floor</ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <lrml:Permitted>
+        <ruleml:Negation>
+          <ruleml:Atom>
+            <ruleml:Rel>
+              floor has emergency stairs
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:Negation>
+      </lrml:Permitted>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:PrescriptiveStatement>
+<lrml:PrescriptiveStatement key="r3">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <lrml:Obligation>
+          <ruleml:Atom>
+            <ruleml:Rel>
+              floor has emergency stairs
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <lrml:Obligation>
+        <ruleml:Atom>
+          <ruleml:Rel>
+            stairs are within distance living space
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </lrml:Obligation>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:PrescriptiveStatement>
+<lrml:ConstituiveStatement key="r4">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>less than</ruleml:Rel>
+          <ruleml:Var>distance living room</ruleml:Var>
+          <ruleml:Data>40meters</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <ruleml:Atom>
+        <ruleml:Rel>stairs are within distance living space</ruleml:Rel>
+      </ruleml:Atom>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:ConstitutiveStatement>
+<lrml:ConstituiveStatement key="r4">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>less than</ruleml:Rel>
+          <ruleml:Var>distance living room</ruleml:Var>
+          <ruleml:Data>40meters</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <ruleml:Atom>
+        <ruleml:Rel>stairs are within distance living space</ruleml:Rel>
+      </ruleml:Atom>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:ConstitutiveStatement>
+
+<lrml:ConstituiveStatement key="r4">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel></ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>less than</ruleml:Rel>
+          <ruleml:Var>distance living room</ruleml:Var>
+          <ruleml:Data>40meters</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <ruleml:Atom>
+        <ruleml:Rel>stairs are within distance living space</ruleml:Rel>
+      </ruleml:Atom>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:ConstitutiveStatement>
+
+<lrml:ConstituiveStatement key="r4">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>building is factory</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>protected fire suppression system</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>fireproof structure</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>less than</ruleml:Rel>
+          <ruleml:Var>distance living space</ruleml:Var>
+          <ruleml:Data>40meters</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <ruleml:Atom>
+        <ruleml:Rel>stairs are within distance living space</ruleml:Rel>
+      </ruleml:Atom>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:ConstitutiveStatement>
+
+<lrml:ConstituiveStatement key="r5">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>building is factory</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>automated production</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>protected fire suppression system</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>less than</ruleml:Rel>
+          <ruleml:Var>distance living space</ruleml:Var>
+          <ruleml:Data>75meters</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <ruleml:Atom>
+        <ruleml:Rel>stairs are within distance living space</ruleml:Rel>
+      </ruleml:Atom>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:ConstitutiveStatement>
+
+<lrml:ConstituiveStatement key="r6">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>building is factory</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>unmanned factory</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>automated production</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>protected fire suppression system</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>less than</ruleml:Rel>
+          <ruleml:Var>distance living space</ruleml:Var>
+          <ruleml:Data>100meters</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <ruleml:Atom>
+        <ruleml:Rel>stairs are within distance living space</ruleml:Rel>
+      </ruleml:Atom>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:ConstitutiveStatement>
+
+<lrml:ConstituiveStatement key="r7">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>building is multi-dwelling</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>greater than</ruleml:Rel>
+          <ruleml:Var>number of floors</ruleml:Var>
+          <ruleml:Con>16</ruleml:Con>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>fireproof structure</ruleml:Rel>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>less than</ruleml:Rel>
+          <ruleml:Var>distance living space</ruleml:Var>
+          <ruleml:Data>40meters</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <ruleml:Atom>
+        <ruleml:Rel>stairs are within distance living space</ruleml:Rel>
+      </ruleml:Atom>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:ConstitutiveStatement>
+
+<lrml:ConstituiveStatement key="r8">
+  <ruleml:Rule strength="defeasible">
+    <ruleml:if>
+      <ruleml:And>
+          <ruleml:Rel>less than</ruleml:Rel>
+          <ruleml:Var>distance living space</ruleml:Var>
+          <ruleml:Data>30meters</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+    </ruleml:if>
+    <ruleml:then>
+      <ruleml:Atom>
+        <ruleml:Rel>stairs are within distance living space</ruleml:Rel>
+      </ruleml:Atom>
+    </ruleml:then>
+  </ruleml:Rule>
+</lrml:ConstitutiveStatement>
+ 
