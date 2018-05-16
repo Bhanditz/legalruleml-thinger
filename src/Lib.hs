@@ -8,7 +8,7 @@ import Text.XML.HXT.Core
 import Control.Arrow.ArrowList (listA)
 import Data.Text (Text, pack)
 
-data StatementCategory = PrescriptiveStatement | ConstituiveStatement deriving (Show, Eq)
+data StatementCategory = PrescriptiveStatement | ConstitutiveStatement deriving (Show, Eq)
 
 data Statement_ed = Statement_ed { statement_category :: StatementCategory, strength, key, formula_frag_id :: Text} deriving (Show, Eq)
 
@@ -16,7 +16,7 @@ data Statement_ed = Statement_ed { statement_category :: StatementCategory, stre
 -- statement_er doc = let statement_s = ((multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstituiveStatement")))) doc) in
 --                        map (\stmt -> Statement_ed (statement_type stmt) "" "" "") statement_s
 
-all_statement_er = multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstituiveStatement"))) >>>
+all_statement_er = multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstitutiveStatement"))) >>>
   proc stmt -> do
     processed <- arr statement_er -< stmt
     returnA -< processed
@@ -32,9 +32,9 @@ statement_er stmt = proc stmt -> do
 
 statement_type :: Text -> StatementCategory
 statement_type = \case
-                           "PrescriptiveStatement" -> PrescriptiveStatement
-                           "ConstituiveStatement"  -> ConstituiveStatement
-                           _                       -> error "Not a statement"
+                           "PrescriptiveStatement"  -> PrescriptiveStatement
+                           "ConstitutiveStatement"  -> ConstitutiveStatement
+                           _                        -> error "Not a statement"
 
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
