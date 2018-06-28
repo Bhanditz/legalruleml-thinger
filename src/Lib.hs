@@ -12,10 +12,6 @@ data StatementCategory = PrescriptiveStatement | ConstitutiveStatement deriving 
 
 data Statement_ed = Statement_ed { statement_category :: StatementCategory, strength, key, formula_frag_id :: Text} deriving (Show, Eq)
 
--- statement_er :: XmlTree -> [Statement_ed]
--- statement_er doc = let statement_s = ((multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstituiveStatement")))) doc) in
---                        map (\stmt -> Statement_ed (statement_type stmt) "" "" "") statement_s
-
 all_statement_er = multi (isElem >>> ((hasName "lrml:PrescriptiveStatement") <+> (hasName "lrml:ConstitutiveStatement"))) >>>
   statement_er
 
