@@ -16,10 +16,12 @@ data Statement_ed = Statement_ed { statement_category :: StatementCategory, stre
 -- statement_er doc = let statement_s = ((multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstituiveStatement")))) doc) in
 --                        map (\stmt -> Statement_ed (statement_type stmt) "" "" "") statement_s
 
-all_statement_er = multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstitutiveStatement"))) >>>
-  proc stmt -> do
-    processed <- arr statement_er -< stmt
-    returnA -< processed
+--all_statement_er :: IOLA XmlTree [Statement_ed]
+all_statement_er = multi (isElem >>> ((hasName "lrml:PrescriptiveStatement") <+> (hasName "lrml:ConstitutiveStatement")))
+  -- fmap (statement_er) this
+  --proc stmt -> do
+  --  processed <- arr statement_er -< stmt
+  --  returnA -< processed
 
 statement_er stmt = proc stmt -> do
                       tagname <- getName -< stmt
