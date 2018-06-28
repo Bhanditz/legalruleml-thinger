@@ -6,7 +6,7 @@ module Lib
 
 import Text.XML.HXT.Core
 import Control.Arrow.ArrowList (listA)
-import Data.Text (Text, pack)
+import Data.Text (Text, pack, unpack)
 
 data StatementCategory = PrescriptiveStatement | ConstitutiveStatement deriving (Show, Eq)
 
@@ -16,14 +16,10 @@ data Statement_ed = Statement_ed { statement_category :: StatementCategory, stre
 -- statement_er doc = let statement_s = ((multi (isElem >>> ((hasName "PrescriptiveStatement") <+> (hasName "ConstituiveStatement")))) doc) in
 --                        map (\stmt -> Statement_ed (statement_type stmt) "" "" "") statement_s
 
---all_statement_er :: IOLA XmlTree [Statement_ed]
-all_statement_er = multi (isElem >>> ((hasName "lrml:PrescriptiveStatement") <+> (hasName "lrml:ConstitutiveStatement")))
-  -- fmap (statement_er) this
-  --proc stmt -> do
-  --  processed <- arr statement_er -< stmt
-  --  returnA -< processed
+all_statement_er = multi (isElem >>> ((hasName "lrml:PrescriptiveStatement") <+> (hasName "lrml:ConstitutiveStatement"))) >>>
+  statement_er
 
-statement_er stmt = proc stmt -> do
+statement_er = proc stmt -> do
                       tagname <- getName -< stmt
                       sc <- arr statement_type -< pack tagname
                       returnA -< Statement_ed {
@@ -34,9 +30,9 @@ statement_er stmt = proc stmt -> do
 
 statement_type :: Text -> StatementCategory
 statement_type = \case
-                           "PrescriptiveStatement"  -> PrescriptiveStatement
-                           "ConstitutiveStatement"  -> ConstitutiveStatement
-                           _                        -> error "Not a statement"
+                           "lrml:PrescriptiveStatement"  -> PrescriptiveStatement
+                           "lrml:ConstitutiveStatement"  -> ConstitutiveStatement
+                           a                             -> error ("Not a statement:" ++ (unpack a))
 
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
