@@ -8,6 +8,7 @@ import Text.XML.HXT.Core
 import Control.Arrow.ArrowList (listA)
 import Data.Text (Text, pack, unpack)
 import Data.Maybe
+import Control.Monad (mplus)
 
 data StatementCategory = PrescriptiveStatement | ConstitutiveStatement deriving (Show, Eq)
 
@@ -32,8 +33,10 @@ statement_er = proc stmt -> do
                         formula = formula }
 
 formulas = proc parent -> do
-                  logics <- listA (getChildren >>> (getName &&&
-                      (catA [isElem >>> getChildren >>> (getText >>> arr (\x -> LogicText (pack x))), withDefault (isElem >>> formulas >>> arr (\x -> if x == [] then LogicEmpty else LogicCollection (x))) LogicEmpty])) >>>
+                  logics <- listA (getChildren >>> (getName &&& (isElem >>> (proc elem -> do
+                          text       <- (getChildren >>> (getText >>> arr (\x -> Just (LogicText (pack x)))) <+> arr (\x -> Nothing)) -< elem
+                          subformula <- ((formulas >>> arr (\x -> if x == [] then Just LogicEmpty else Just (LogicCollection x))) <+> arr (\x -> Nothing)) -< elem
+                          returnA -< (fromMaybe LogicEmpty $ mplus text subformula)))) >>>
                       arr (\x -> Logic { name = pack (fst x), child = snd x })) -< parent
                   returnA -< logics
 
