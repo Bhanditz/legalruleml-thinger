@@ -27,7 +27,7 @@ appoptions = AppOptions
 real_main :: AppOptions -> IO ()
 real_main options =
     do
-      stmts <- runX (readDocument [] (fileName options) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_statement_er)
+      stmts <- runX (readDocument [withRemoveWS yes] (fileName options) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_statement_er)
       case stmts of
         []  -> putStrLn "No statements found."
         w   -> print w
