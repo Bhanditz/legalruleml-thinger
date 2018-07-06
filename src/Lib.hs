@@ -22,9 +22,9 @@ all_statement_er = multi (isElem >>> ((hasName "lrml:PrescriptiveStatement") <+>
 
 statement_er = proc stmt -> do
                       sc <- getName >>> arr pack >>> arr statement_type -< stmt
-                      key <- withDefault (getAttrl >>> hasName "key" >>> getChildren >>> getText >>> arr (\x -> Just (pack x))) Nothing -< stmt
-                      strength <- withDefault (getChildren >>> hasName "ruleml:Rule" >>> getAttrl >>> hasName "strength" >>> getChildren >>> getText >>> arr (\x -> Just (pack x))) Nothing -< stmt
-                      formula <- withDefault (getChildren >>> hasName "ruleml:Rule" >>> formulas >>> arr (\x -> Just x)) Nothing -< stmt
+                      key <- single (withDefault (getAttrl >>> hasName "key" >>> getChildren >>> getText >>> arr (\x -> Just (pack x))) Nothing) -< stmt
+                      strength <- single (withDefault (getChildren >>> hasName "ruleml:Rule" >>> getAttrl >>> hasName "strength" >>> getChildren >>> getText >>> arr (\x -> Just (pack x))) Nothing) -< stmt
+                      formula <- single (withDefault (getChildren >>> hasName "ruleml:Rule" >>> formulas >>> arr (\x -> Just x)) Nothing) -< stmt
                       returnA -< Statement_ed {
                         statement_category = sc,
                         strength = strength,
