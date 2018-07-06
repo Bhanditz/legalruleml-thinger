@@ -33,8 +33,8 @@ statement_er = proc stmt -> do
 
 formulas = proc parent -> do
                   logics <- listA (getChildren >>> (getName &&& (isElem >>> (proc elem -> do
-                          text       <- (getChildren >>> (getText >>> arr (\x -> Just (LogicText (pack x)))) <+> arr (\x -> Nothing)) -< elem
-                          subformula <- ((formulas >>> arr (\x -> if x == [] then Just LogicEmpty else Just (LogicCollection x))) <+> arr (\x -> Nothing)) -< elem
+                          text       <- withDefault (getChildren >>> (getText >>> arr (\x -> Just (LogicText (pack x))))) Nothing -< elem
+                          subformula <- withDefault (formulas >>> arr (\x -> if x == [] then Just LogicEmpty else Just (LogicCollection x))) Nothing -< elem
                           returnA -< (fromMaybe LogicEmpty $ mplus text subformula)))) >>>
                       arr (\x -> Logic { name = pack (fst x), child = snd x })) -< parent
                   returnA -< logics
