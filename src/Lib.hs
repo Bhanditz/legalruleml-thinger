@@ -1,7 +1,7 @@
 {-# Language TemplateHaskell, QuasiQuotes, FlexibleContexts, DeriveDataTypeable, Haskell2010, OverloadedStrings, Arrows, NoMonomorphismRestriction, LambdaCase #-}
 
 module Lib
-    ( parseXML, all_statement_er, Statement_ed, formulas
+    ( all_statement_er, Statement_ed, formulas
     ) where
 
 import Text.XML.HXT.Core
@@ -46,6 +46,3 @@ statement_type = \case
                            "lrml:ConstitutiveStatement"  -> ConstitutiveStatement
                            a                             -> error ("Not a statement:" ++ (unpack a))
 
-parseXML file = readDocument [ withValidate no
-                             , withRemoveWS yes  -- throw away formating WS
-                             ] file
