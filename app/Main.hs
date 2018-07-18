@@ -5,29 +5,49 @@ module Main where
 import Lib
 import Text.XML.HXT.Core
 import Options.Applicative as OA
+import Options.Applicative.Arrows
 import Data.Monoid((<>))
 import Control.Applicative
 import Data.List
 import Data.Text
 
 data AppOptions = AppOptions {
-  fileName :: String,
-  outputFile :: String
+  fileName :: Text,
+  act      :: Command
 }
 
+data Command = PrintOut | PopulateDatabase String
+
+withInfo :: Parser a -> String -> ParserInfo a
+withInfo opts desc = info (helper <*> opts) $ progDesc desc 
+
 appoptions :: OA.Parser AppOptions
-appoptions = AppOptions
-        <$> argument str
-              ( metavar "FILE"
-             <> help "File to parse" )
-        <*> argument str
-              ( metavar "FILE"
-             <> help "Output file name")
+appoptions = subparser $
+        command "print" (printCmd `withInfo` "Print out the structured information extracted from a LegalRuleML file") <>
+        command "db"    (dbCmd    `withInfo` "Populate a database with information extracted from a LegalRuleML file")
+
+fileBit :: OA.Parser Text
+fileBit = runA $ proc () -> do
+            file <- asA (argument str (metavar "FILE" <> help "File to parse")) -< ()
+            returnA -< pack file
+
+printCmd :: OA.Parser AppOptions
+printCmd =  runA $ proc () -> do
+             fileName <- asA fileBit -< ()
+             returnA -< AppOptions { fileName = fileName, act = PrintOut }
+
+dbCmd :: OA.Parser AppOptions
+dbCmd = AppOptions
+          <$> fileBit
+          <*> (PopulateDatabase <$> argument str
+              ( metavar "DBNAME"
+             <> help "Database to connect to" ))
+
 
 real_main :: AppOptions -> IO ()
 real_main options =
     do
-      stmts <- runX (readDocument [withRemoveWS yes] (fileName options) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_statement_er)
+      stmts <- runX (readDocument [withRemoveWS yes] (unpack (fileName options)) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_statement_er)
       case stmts of
         []  -> putStrLn "No statements found."
         w   -> print w
