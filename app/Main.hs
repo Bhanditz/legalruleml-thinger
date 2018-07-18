@@ -48,9 +48,9 @@ real_main :: AppOptions -> IO ()
 real_main options =
     do
       stmts <- runX (readDocument [withRemoveWS yes] (unpack (fileName options)) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_statement_er)
-      case stmts of
-        []  -> putStrLn "No statements found."
-        w   -> print w
+      case (act options) of
+        PrintOut            -> print stmts
+        PopulateDatabase db -> print "..."
 
 main :: IO ()
 main = execParser opts >>= real_main
