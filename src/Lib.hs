@@ -4,11 +4,33 @@ module Lib
     ( all_statement_er, Statement_ed, formulas
     ) where
 
+import Prelude hiding (sum)
 import Text.XML.HXT.Core
 import Control.Arrow.ArrowList (listA)
 import Data.Text (Text, pack, unpack)
 import Data.Maybe
 import Control.Monad (mplus)
+
+-- Imports for db handling
+
+import           Opaleye (Column, Nullable, matchNullable, isNull,
+                         Table, table, tableColumn, queryTable,
+                         Query, QueryArr, restrict, (.==), (.<=), (.&&), (.<),
+                         (.===),
+                         (.++), ifThenElse, sqlString, aggregate, groupBy,
+                         count, avg, sum, leftJoin, runQuery,
+                         showSqlForPostgres, Unpackspec,
+                         SqlInt4, SqlInt8, SqlText, SqlDate, SqlFloat8, SqlBool)
+
+import           Data.Profunctor.Product (p2, p3)
+import           Data.Profunctor.Product.Default (Default)
+import           Data.Profunctor.Product.TH (makeAdaptorAndInstance)
+import           Data.Time.Calendar (Day)
+
+import           Control.Arrow (returnA)
+
+import qualified Database.PostgreSQL.Simple as PGS
+
 
 data StatementCategory = PrescriptiveStatement | ConstitutiveStatement deriving (Show, Eq)
 
@@ -45,4 +67,5 @@ statement_type = \case
                            "lrml:PrescriptiveStatement"  -> PrescriptiveStatement
                            "lrml:ConstitutiveStatement"  -> ConstitutiveStatement
                            a                             -> error ("Not a statement:" ++ (unpack a))
+
 
