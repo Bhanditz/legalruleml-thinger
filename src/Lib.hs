@@ -20,9 +20,9 @@ import           Opaleye (Column, Nullable, matchNullable, isNull,
                          (.++), ifThenElse, sqlString, aggregate, groupBy,
                          count, avg, sum, leftJoin, runQuery,
                          showSqlForPostgres, Unpackspec,
-                         SqlInt4, SqlInt8, SqlText, SqlDate, SqlFloat8, SqlBool)
+                         SqlInt4, SqlInt8, SqlText, SqlDate, SqlFloat8, SqlBool, SqlArray)
 
-import           Data.Profunctor.Product (p2, p3)
+import           Data.Profunctor.Product (p2, p3, p4, p5)
 import           Data.Profunctor.Product.Default (Default)
 import           Data.Profunctor.Product.TH (makeAdaptorAndInstance)
 import           Data.Time.Calendar (Day)
@@ -68,4 +68,27 @@ statement_type = \case
                            "lrml:ConstitutiveStatement"  -> ConstitutiveStatement
                            a                             -> error ("Not a statement:" ++ (unpack a))
 
+-- Define tables
+-- We have one for statements, one for formulas, and one for metadata
+-- Statements :: Id, Category, Strength, key, formula
+-- Formulas :: Id, name, text, children
+-- Metadata :: Id, text
 
+
+statementTable :: Table
+      (Maybe (Column SqlInt4), Column SqlText, Maybe (Column SqlText), Maybe (Column SqlText), Maybe (Column (SqlArray SqlInt4)))
+      ((Column SqlInt4), Column SqlText, (Column SqlText), (Column SqlText), (Column (SqlArray SqlInt4)))
+
+statementTable = table "Statement" (p5 (tableColumn "id", tableColumn "category", tableColumn "strength", tableColumn "key", tableColumn "formula"))
+
+formulaTable :: Table
+      (Maybe (Column SqlInt4), Column SqlText, Maybe (Column SqlText), Maybe (Column (SqlArray SqlInt4)))
+      ((Column SqlInt4), Column SqlText, (Column SqlText), (Column (SqlArray SqlInt4)))
+
+formulaTable = table "Formula" (p4 (tableColumn "id", tableColumn "name", tableColumn "text", tableColumn "children"))
+
+metadataTable :: Table
+      (Maybe (Column SqlInt4), Column SqlText)
+      ((Column SqlInt4), Column SqlText)
+
+metadataTable = table "Metadata" (p2 (tableColumn "id", tableColumn "text"))
