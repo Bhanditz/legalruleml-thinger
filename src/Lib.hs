@@ -16,8 +16,8 @@ import Control.Monad (mplus)
 import           Opaleye (Column, Nullable, matchNullable, isNull,
                          Table, table, tableColumn, queryTable,
                          Query, QueryArr, restrict, (.==), (.<=), (.&&), (.<),
-                         (.===),
-                         (.++), ifThenElse, sqlString, aggregate, groupBy,
+                         (.===), Insert(..), Update(..), Delete(..), rCount, rReturning, updateEasy,
+                         (.++), ifThenElse, sqlString, sqlArray, sqlInt4, aggregate, groupBy,
                          count, avg, sum, leftJoin, runQuery,
                          showSqlForPostgres, Unpackspec,
                          SqlInt4, SqlInt8, SqlText, SqlDate, SqlFloat8, SqlBool, SqlArray)
@@ -68,6 +68,19 @@ statement_type = \case
                            "lrml:ConstitutiveStatement"  -> ConstitutiveStatement
                            a                             -> error ("Not a statement:" ++ (unpack a))
 
+
+-- db housekeeping
+
+dbConnection :: Text -> IO PGS.Connection
+dbConnection db = PGS.connect PGS.ConnectInfo {
+                     PGS.connectHost="localhost"
+                   , PGS.connectPort=5432
+                   , PGS.connectDatabase=(unpack db)
+                   , PGS.connectPassword="Password"
+                   , PGS.connectUser="User"
+                   }
+
+
 -- Define tables
 -- We have one for statements, one for formulas, and one for metadata
 -- Statements :: Id, Category, Strength, key, formula
@@ -92,3 +105,21 @@ metadataTable :: Table
       ((Column SqlInt4), Column SqlText)
 
 metadataTable = table "Metadata" (p2 (tableColumn "id", tableColumn "text"))
+
+
+--insertStatements :: [Statement_ed] -> IO ()
+--insertStatements statements = 
+
+--   child_keys <- mapM logicBuilder (formula s)
+
+returns :: (Column SqlInt4, Column SqlText, Column SqlText, Column SqlText, Column (SqlArray SqlInt4)) -> Column SqlInt4
+returns (id_, _, _, _, _) = id_ 
+
+statementBuilder :: Statement_ed -> [Int] -> (Insert [Int])
+statementBuilder s c =
+   Insert
+     { iTable        = statementTable
+     , iRows         = [(Nothing, sqlString (show (statement_category s)), fmap (\x -> sqlString (unpack x)) (strength s), fmap (\x -> sqlString (unpack x)) (key s), Just (sqlArray (\n -> sqlInt4 n) c))]
+     , iReturning    = rReturning returns
+     , iOnConflict   = Nothing
+     }
