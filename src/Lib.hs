@@ -125,7 +125,7 @@ statementBuilder s c =
      }
 
 -- Before we can build a statement, we need the formula ids
--- So, from a [Statement_ed] we map formulaBuilder (as an insertReturning), then mapM runQueryReturning, getting back [(Statement_ed, [Int])] - we then map (\(s, c) -> statementBuilder s c) over it, and then mapM_ runQuery
+-- So, from a [Statement_ed] we map formulaBuilder (as an insertReturning), then mapM runInsert_, getting back [(Statement_ed, [Int])] - we then map (\(s, c) -> statementBuilder s c) over it, and then mapM_ runQuery
 
 insertStatements :: [Statement_ed] -> PGS.Connection -> IO ()
 insertStatements st conn = do
@@ -133,6 +133,8 @@ insertStatements st conn = do
     formulasWithIds <- mapM (\(x, y) -> do
       z <- runInsert_ conn y
       return (x, z)) formulaQuery
-    undefined
+    let statementsWithIds = map (\(x, y) -> statementBuilder x y) formulasWithIds
+    mapM_ (runInsert_ conn) statementsWithIds
 
+formulaBuilding :: Statement_ed -> (Insert [Int])
 formulaBuilding = undefined
