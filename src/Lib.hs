@@ -1,7 +1,7 @@
 {-# Language TemplateHaskell, QuasiQuotes, FlexibleContexts, DeriveDataTypeable, Haskell2010, OverloadedStrings, Arrows, NoMonomorphismRestriction, LambdaCase #-}
 
 module Lib
-    ( all_statement_er, Statement_ed, formulas
+    ( all_statement_er, Statement_ed, formulas, insertStatements, dbConnection
     ) where
 
 import Prelude hiding (sum)

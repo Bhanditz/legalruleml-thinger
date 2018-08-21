@@ -53,7 +53,8 @@ getData fileName = do
 
 populateDb :: [Statement_ed] -> Text -> IO ()
 populateDb stuff dbName = do
-    print stuff
+    conn <- dbConnection dbName
+    insertStatements stuff conn
 
 real_main :: Command -> IO ()
 real_main options =
