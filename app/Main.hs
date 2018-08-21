@@ -11,7 +11,7 @@ import Control.Applicative
 import Data.List
 import Data.Text
 
-data Command = PrintOut Text | PopulateDatabase Text Text | InitDatabase Text
+data Command = PrintOut Text | PopulateDatabase Text (Text, Text, Text, Int) | InitDatabase (Text, Text, Text, Int)
 
 withInfo :: Parser a -> String -> ParserInfo a
 withInfo opts desc = info (helper <*> opts) $ progDesc desc 
@@ -27,10 +27,13 @@ fileBit = runA $ proc () -> do
             file <- asA (argument str (metavar "FILE" <> help "File to parse")) -< ()
             returnA -< pack file
 
-dbBit :: OA.Parser Text
+dbBit :: OA.Parser (Text, Text, Text, Int)
 dbBit = runA $ proc () -> do
             db <- asA (argument str (metavar "DBNAME" <> help "Database to connect to")) -< ()
-            returnA -< pack db
+            user <- asA (argument str (metavar "USER" <> help "User name (db role)")) -< ()
+            password <- asA (argument str (metavar "PASSWORD" <> help "Password")) -< ()
+            port <- asA (argument auto (metavar "PORT" <> help "Port to connect on")) -< ()
+            returnA -< (pack db, pack user, pack password, port)
 
 printCmd :: OA.Parser Command
 printCmd =  runA $ proc () -> do
@@ -51,9 +54,9 @@ getData :: Text -> IO [Statement_ed]
 getData fileName = do
     runX (readDocument [withRemoveWS yes] (unpack fileName) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_statement_er)
 
-populateDb :: [Statement_ed] -> Text -> IO ()
-populateDb stuff dbName = do
-    conn <- dbConnection dbName
+populateDb :: [Statement_ed] -> Text -> Text -> Text -> Int -> IO ()
+populateDb stuff dbName user password port = do
+    conn <- dbConnection dbName user password port
     insertStatements stuff conn
 
 real_main :: Command -> IO ()
@@ -64,9 +67,9 @@ real_main options =
         PrintOut         file    -> do
             stuff <- getData file
             print stuff
-        PopulateDatabase file db -> do
+        PopulateDatabase file (db, user, password, port) -> do
             stuff <- getData file
-            populateDb stuff db
+            populateDb stuff db user password port
 
 main :: IO ()
 main = execParser opts >>= real_main

@@ -72,13 +72,13 @@ statement_type = \case
 
 -- db housekeeping
 
-dbConnection :: Text -> IO PGS.Connection
-dbConnection db = PGS.connect PGS.ConnectInfo {
+dbConnection :: Text -> Text -> Text -> Int -> IO PGS.Connection
+dbConnection db user pwd port= PGS.connect PGS.ConnectInfo {
                      PGS.connectHost="localhost"
-                   , PGS.connectPort=5432
+                   , PGS.connectPort=fromInteger (toInteger port)
                    , PGS.connectDatabase=(unpack db)
-                   , PGS.connectPassword="Password"
-                   , PGS.connectUser="User"
+                   , PGS.connectPassword=(unpack pwd)
+                   , PGS.connectUser=(unpack user)
                    }
 
 
