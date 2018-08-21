@@ -9,6 +9,7 @@ import Text.XML.HXT.Core
 import Control.Arrow.ArrowList (listA)
 import Data.Text (Text, pack, unpack)
 import Data.Maybe
+import Data.Foldable (concat)
 import Control.Monad (mplus)
 
 -- Imports for db handling
@@ -125,7 +126,9 @@ statementBuilder s c =
      }
 
 -- Before we can build a statement, we need the formula ids
--- So, from a [Statement_ed] we map formulaBuilder (as an insertReturning), then mapM runInsert_, getting back [(Statement_ed, [Int])] - we then map (\(s, c) -> statementBuilder s c) over it, and then mapM_ runQuery
+-- So, from a [Statement_ed] we need to generate formula ids. Unfortunately we can't just map, as formulas can contain other formulas, and we don't know the ids until after they get inserted.
+-- So to form a thing we first check to see if it has subformulas; if so, form them and get the resulting ids. Then make an insert (with any returned ids in place), and runInsert_ it. Then return the resulting ids.
+-- ... getting back [(Statement_ed, [Int])] - we then map (\(s, c) -> statementBuilder s c) over it, and then mapM_ runQuery
 
 insertStatements :: [Statement_ed] -> PGS.Connection -> IO ()
 insertStatements st conn = do
@@ -137,4 +140,13 @@ insertStatements st conn = do
     mapM_ (runInsert_ conn) statementQueries
 
 formulaBuilder :: Statement_ed -> (Insert [Int])
-formulaBuilder = undefined
+formulaBuilder stmt = 
+   let logics = (concat $ formula stmt)
+   Insert
+     { iTable        = statementTable
+     , iRows         = map (\logic -> ) logics
+     [(Nothing, sqlString (show (statement_category s)), fmap (\x -> sqlString (unpack x)) (strength s), fmap (\x -> sqlString (unpack x)) (key s), Just (sqlArray (\n -> sqlInt4 n) c))]
+     , iReturning    = rReturning returns
+     , iOnConflict   = Nothing
+     }
+
