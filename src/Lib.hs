@@ -18,7 +18,7 @@ import           Opaleye (Column, Nullable, matchNullable, isNull,
                          Query, QueryArr, restrict, (.==), (.<=), (.&&), (.<),
                          (.===), Insert(..), Update(..), Delete(..), rCount, rReturning, updateEasy,
                          (.++), ifThenElse, sqlString, sqlArray, sqlInt4, aggregate, groupBy,
-                         count, avg, sum, leftJoin, runQuery,
+                         count, avg, sum, leftJoin, runQuery, runInsert_,
                          showSqlForPostgres, Unpackspec,
                          SqlInt4, SqlInt8, SqlText, SqlDate, SqlFloat8, SqlBool, SqlArray)
 
@@ -123,3 +123,16 @@ statementBuilder s c =
      , iReturning    = rReturning returns
      , iOnConflict   = Nothing
      }
+
+-- Before we can build a statement, we need the formula ids
+-- So, from a [Statement_ed] we map formulaBuilder (as an insertReturning), then mapM runQueryReturning, getting back [(Statement_ed, [Int])] - we then map (\(s, c) -> statementBuilder s c) over it, and then mapM_ runQuery
+
+insertStatements :: [Statement_ed] -> PGS.Connection -> IO ()
+insertStatements st conn = do
+    let formulaQuery = map (\x -> (x, formulaBuilding x)) st
+    formulasWithIds <- mapM (\(x, y) -> do
+      z <- runInsert_ conn y
+      return (x, z)) formulaQuery
+    undefined
+
+formulaBuilding = undefined
