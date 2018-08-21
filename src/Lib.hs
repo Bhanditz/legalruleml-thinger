@@ -132,14 +132,14 @@ statementBuilder s c =
 
 insertStatements :: [Statement_ed] -> PGS.Connection -> IO ()
 insertStatements st conn = do
-    let formulaQueries = map (\x -> (x, formulaBuilder x)) st
+    let logics = map (\x -> (x, concat $ formula x)) st
     statementsWithFormulaIds <- mapM (\(x, y) -> do
-      z <- runInsert_ conn y
-      return (x, z)) formulaQueries
+      z <- mapM (\w -> pushThroughLogic w formulaBuilder conn) y
+      return (x, concat z)) logics
     let statementQueries = map (\(x, y) -> statementBuilder x y) statementsWithFormulaIds
     mapM_ (runInsert_ conn) statementQueries
 
-formulaBuilder :: Statement_ed -> (Insert [Int])
+formulaBuilder :: Logic -> [Int] -> (Insert [Int])
 formulaBuilder = undefined
 {-formulaBuilder stmt = 
    let logics = (concat $ formula stmt) in
