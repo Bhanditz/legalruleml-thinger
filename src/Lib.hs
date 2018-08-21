@@ -116,6 +116,9 @@ metadataTable = table "Metadata" (p2 (tableColumn "id", tableColumn "text"))
 returns :: (Column SqlInt4, Column SqlText, Column SqlText, Column SqlText, Column (SqlArray SqlInt4)) -> Column SqlInt4
 returns (id_, _, _, _, _) = id_ 
 
+returnsF :: (Column SqlInt4, Column SqlText, Column SqlText, Column (SqlArray SqlInt4)) -> Column SqlInt4
+returnsF (id_, _, _, _) = id_ 
+
 statementBuilder :: Statement_ed -> [Int] -> (Insert [Int])
 statementBuilder s c =
    Insert
@@ -140,16 +143,22 @@ insertStatements st conn = do
     mapM_ (runInsert_ conn) statementQueries
 
 formulaBuilder :: Logic -> [Int] -> (Insert [Int])
-formulaBuilder = undefined
-{-formulaBuilder stmt = 
-   let logics = (concat $ formula stmt) in
+formulaBuilder formula subformulas =
    Insert
-     { iTable        = statementTable
-     , iRows         = map (\logic -> ) logics
-     [(Nothing, sqlString (show (statement_category s)), fmap (\x -> sqlString (unpack x)) (strength s), fmap (\x -> sqlString (unpack x)) (key s), Just (sqlArray (\n -> sqlInt4 n) c))]
-     , iReturning    = rReturning returns
+     { iTable        = formulaTable
+     , iRows         = [(Nothing
+                         , sqlString (show (name formula))
+                         , case child formula of
+                                        LogicEmpty        -> Nothing
+                                        LogicText t       -> Just $ sqlString $ show t
+                                        LogicCollection _ -> Nothing
+                         , case child formula of
+                                        LogicEmpty        -> Nothing
+                                        LogicText _       -> Nothing
+                                        LogicCollection _ -> Just $ sqlArray sqlInt4 subformulas)]
+     , iReturning    = rReturning returnsF
      , iOnConflict   = Nothing
-     } -}
+     }
 
 
 pushThroughLogic :: Logic -> (Logic -> [Int] -> Insert [Int]) -> PGS.Connection -> IO [Int]
