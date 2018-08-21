@@ -140,13 +140,26 @@ insertStatements st conn = do
     mapM_ (runInsert_ conn) statementQueries
 
 formulaBuilder :: Statement_ed -> (Insert [Int])
-formulaBuilder stmt = 
-   let logics = (concat $ formula stmt)
+formulaBuilder = undefined
+{-formulaBuilder stmt = 
+   let logics = (concat $ formula stmt) in
    Insert
      { iTable        = statementTable
      , iRows         = map (\logic -> ) logics
      [(Nothing, sqlString (show (statement_category s)), fmap (\x -> sqlString (unpack x)) (strength s), fmap (\x -> sqlString (unpack x)) (key s), Just (sqlArray (\n -> sqlInt4 n) c))]
      , iReturning    = rReturning returns
      , iOnConflict   = Nothing
-     }
+     } -}
+
+
+pushThroughLogic :: Logic -> (Logic -> [Int] -> Insert [Int]) -> PGS.Connection -> IO [Int]
+pushThroughLogic logic builder conn = do
+    case (child logic) of
+      LogicEmpty        -> return []
+      LogicText _       -> runInsert_ conn (builder logic [])
+      LogicCollection c -> do
+        -- we need to pushThrough all of the elements of c, then concat the results
+        children <- mapM (\x -> pushThroughLogic x builder conn) c
+        let flatChildren = concat children
+        runInsert_ conn (builder logic flatChildren)
 
