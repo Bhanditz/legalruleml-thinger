@@ -1,4 +1,4 @@
-{-# Language TemplateHaskell, QuasiQuotes, FlexibleContexts, DeriveDataTypeable, Haskell2010, OverloadedStrings, Arrows, NoMonomorphismRestriction, LambdaCase #-}
+{-# Language TemplateHaskell, QuasiQuotes, FlexibleContexts, DeriveDataTypeable, Haskell2010, OverloadedStrings, Arrows, NoMonomorphismRestriction, LambdaCase, ScopedTypeVariables #-}
 
 module Main where
 
@@ -10,6 +10,7 @@ import Data.Monoid((<>))
 import Control.Applicative
 import Data.List
 import Data.Text
+import qualified Database.PostgreSQL.Simple as PGS
 
 data Command = PrintOut Text | PopulateDatabase Text (Text, Text, Text, Int) | InitDatabase (Text, Text, Text, Int)
 
@@ -59,11 +60,21 @@ populateDb stuff dbName user password port = do
     conn <- dbConnection dbName user password port
     insertStatements stuff conn
 
+initDb :: Text -> Text -> Text -> Int -> IO ()
+initDb dbName user password port = do
+    conn <- dbConnection dbName user password port
+    PGS.execute_ conn "CREATE TABLE \"Statement\" (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, category TEXT NOT NULL, strength TEXT, key TEXT, formula integer[]);"
+    PGS.execute_ conn "CREATE TABLE \"Formula\" (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, name TEXT NOT NULL, text TEXT, children integer[]);"
+    PGS.execute_ conn "CREATE TABLE \"Metadata\" (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, text TEXT NOT NULL);"
+    return ()
+
+
 real_main :: Command -> IO ()
 real_main options =
     do
       case options of
-        InitDatabase     db      -> print db
+        InitDatabase (db, user, password, port) -> do
+            initDb db user password port
         PrintOut         file    -> do
             stuff <- getData file
             print stuff
