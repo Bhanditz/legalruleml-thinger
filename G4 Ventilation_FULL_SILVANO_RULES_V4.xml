@@ -1,0 +1,4746 @@
+<?xml version="1.0"?>
+<lrml:LegalRuleML
+  xmlns:lrml="http://docs.oasis-open.org/legalruleml/ns/v1.0/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:ruleml="http://ruleml.org/spec"
+  xsi:schemaLocation="http://docs.oasis-open.org/legalruleml/ns/v1.0/ lrml-compact.xsd">
+
+  <lrml:Prefix pre="devo" refID="http://example.com/deontic-vocabulary#"/>
+  <lrml:Prefix pre="lovo"  refID="http://example.com/logic-vocabulary#"/>
+  <lrml:Prefix pre="buvo" refID="http://example.com/buildingcode-vocabulary#"/>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="G4.2"/>
+    <lrml:toTarget keyref="#G4.2.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#G4.2.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:Within">
+            <ruleml:Rel iri="0174">
+              Spaces
+            </ruleml:Rel>
+            <ruleml:Rel iri="0001">
+              buildings
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:With">
+              <ruleml:Rel iri="0175">
+                provided with adequate
+              </ruleml:Rel>
+              <ruleml:Rel iri="0002">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="G4.2"/>
+    <lrml:toTarget keyref="#G4.2.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#G4.2.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:With">
+            <ruleml:Rel iri="0175">
+              provided with adequate
+            </ruleml:Rel>
+            <ruleml:Rel iri="0002">
+              ventilation
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0003">
+                consistent with their maximum occupancy
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0004">
+                their intended use
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="Definitions.HabitableSpace"/>
+    <lrml:toTarget keyref="#Definitions.HabitableSpace.a"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#Definitions.HabitableSpace.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="lovo:Normally">
+            <ruleml:Fun iri="buvo:AssociatedWith">
+              <ruleml:Rel iri="0174">
+                A space used for activities
+              </ruleml:Rel>
+              <ruleml:Rel iri="0165">
+                domestic living
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0028">
+            Habitable space
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="Definitions.HabitableSpace"/>
+    <lrml:toTarget keyref="#Definitions.HabitableSpace.b"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#Definitions.HabitableSpace.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0149">
+              bathroom,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0155">
+              laundry,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0154">
+              water closet, (ASSUMING = toilets)
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0166">
+              pantry,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0167">
+              walk-in wardrobe,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0168">
+              corridor,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0169">
+              hallway,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0170">
+              lobby,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0171">
+              clothes-drying room, or
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0172">
+              other space of a specialised nature occupied neither frequently
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0173">
+              nor for extended periods.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:Or>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Negation>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              Habitable space
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:Negation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#Definitions.HabitableSpace.b" under="#Definitions.HabitableSpace.a"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.0.1"/>
+    <lrml:toTarget keyref="#1.0.1.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.0.1.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:In">
+            <ruleml:Rel iri="0005">
+              the air-flow rate (and consequently number of air changes)
+            </ruleml:Rel>
+            <ruleml:Rel iri="0011">
+              In ducted mechanical ventilation systems
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Permission iri="devo:Permission">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0006">
+              verified using the methods of measurement given in the CIBSE Code Series A, Appendix A3.1.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Permission>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.0.1"/>
+    <lrml:toTarget keyref="#1.0.1.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.0.1.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0007">
+            For determining the volume of outdoor air,
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Achievement">
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Close">
+              <ruleml:Rel iri="0008">
+                measurements shall be taken
+              </ruleml:Rel>
+              <ruleml:Rel iri="0176">
+                close to the outdoor air inlet.
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.0.1"/>
+    <lrml:toTarget keyref="#2.0.1"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#2.0.1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="lovo:Demonstrating">
+            <ruleml:Fun iri="buvo:NotExceed">
+              <ruleml:Rel iri="0147">
+                by demonstrating that contaminant levels
+              </ruleml:Rel>
+              <ruleml:Rel iri="0177">
+                do not exceed the limits recommended in “Workplace Exposure Standards and Biological Exposure Indices 7th Edition”.
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0148">
+            The acceptability of indoor air purity for workplaces
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.1.1"/>
+    <lrml:toTarget keyref="#1.1.1"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.1.1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:With">
+            <ruleml:Rel iri="0175">
+              provided with adequate
+            </ruleml:Rel>
+            <ruleml:Rel iri="0002">
+              ventilation
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:By">
+              <ruleml:Rel iri="0148">
+                maintain air purity
+              </ruleml:Rel>
+              <ruleml:Rel iri="0009">
+                by a flow of outdoor air through the building envelope
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.1.2"/>
+    <lrml:toTarget keyref="#1.1.2"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.1.2">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0010">
+              natural ventilation (refer to Paragraphs 1.2 and 1.3)
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              mechanical ventilation (refer to Paragraph 1.5)
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0012">
+              a combination of mechanical and natural ventilation (refer to Paragraph 1.4).
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:Or>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:With">
+            <ruleml:Rel iri="0175">
+              provided with adequate
+            </ruleml:Rel>
+            <ruleml:Rel iri="0002">
+              ventilation
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.1.3"/>
+    <lrml:toTarget keyref="#1.1.3"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.1.3">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:Containing">
+            <ruleml:Rel iri="0001">
+              Buildings
+            </ruleml:Rel>
+            <ruleml:Rel iri="0013">
+              containing Type 5 fire alarm systems
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Installed">
+              <ruleml:Rel iri="0011">
+                have mechanical extract ventilation
+              </ruleml:Rel>
+              <ruleml:Rel iri="0014">
+                installed in kitchens.
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.1"/>
+    <lrml:toTarget keyref="#1.2.1.v1"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.2.1.v1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Adjacent">
+              <ruleml:Rel iri="0010">
+                Where natural ventilation is available
+              </ruleml:Rel>
+              <ruleml:Rel iri="0174">
+                via adjacent spaces,
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0016">
+              small spaces such as hallways and lobbies in household units.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0002">
+                specific ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.2.1.v1" under="#G4.2.a"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.1"/>
+    <lrml:toTarget keyref="#1.2.1.v2"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.2.1.v2">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Adjacent">
+              <ruleml:Rel iri="0010">
+                Where natural ventilation is available
+              </ruleml:Rel>
+              <ruleml:Rel iri="0174">
+                via adjacent spaces,
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0016">
+              small spaces such as hallways and lobbies in household units.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0002">
+            specific ventilation
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.2"/>
+    <lrml:toTarget keyref="#1.2.2.a.v1"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.2.2.a.v1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="lovo:GreatherEqualTo">
+            <ruleml:Rel iri="0017">
+              providing a net openable area of windows or other openings to the outside of no less than 5% of the floor area.
+            </ruleml:Rel>
+            <ruleml:Data xsi:type="xs:decimal">
+              0.05
+            </ruleml:Data>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0010">
+            Natural ventilation of occupied spaces
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.2"/>
+    <lrml:toTarget keyref="#1.2.2.b.v1"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.2.2.b.v1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:In">
+            <ruleml:Rel iri="0010">
+              occupied spaces
+            </ruleml:Rel>
+            <ruleml:Rel iri="0018">
+              in Commercial and Industrial buildings where products listed in NZBC Clause G4.3.3 are generated (mechanical ventilation of these spaces is required),
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Negation>
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherEqualTo">
+              <ruleml:Rel iri="0017">
+                The 5% floor area requirement
+              </ruleml:Rel>
+              <ruleml:Data xsi:type="xs:decimal">
+                0.05
+              </ruleml:Data>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:Negation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.2.2.b.v1" under="#1.2.2.a.v1"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.2"/>
+    <lrml:toTarget keyref="#1.2.2.c.v1"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.2.2.c.v1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <lrml:Obligation>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:In">
+              <ruleml:Rel iri="0010">
+                occupied spaces
+              </ruleml:Rel>
+              <ruleml:Rel iri="0018">
+                in Commercial and Industrial buildings where products listed in NZBC Clause G4.3.3 are generated
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              (mechanical ventilation of these spaces is required),
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.2"/>
+    <lrml:toTarget keyref="#1.2.2.d.v1"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.2.2.d.v1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Where">
+              <ruleml:Rel iri="0019">
+                household units
+              </ruleml:Rel>
+              <ruleml:Rel iri="0178">
+                where there is only one external wall with opening windows (refer to Paragraph 1.3 for additional requirements if natural ventilation is used).
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Where">
+              <ruleml:Rel iri="0015">
+                accommodation units
+              </ruleml:Rel>
+              <ruleml:Rel iri="0178">
+                where there is only one external wall with opening windows (refer to Paragraph 1.3 for additional requirements if natural ventilation is used).
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:Or>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Negation>
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherEqualTo">
+              <ruleml:Rel iri="0017">
+                The 5% floor area requirement
+              </ruleml:Rel>
+              <ruleml:Data xsi:type="xs:decimal">
+                0.05
+              </ruleml:Data>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:Negation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.2.2.d.v1" under="#1.2.2.a.v1"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.2"/>
+    <lrml:toTarget keyref="#1.2.2.a.v2"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.2.2.a.v2">
+   <ruleml:Rule>
+      <ruleml:if>
+        <lrml:Obligation>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0010">
+              Natural ventilation of occupied spaces
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherEqualTo">
+              <ruleml:Rel iri="0017">
+                providing a net openable area of windows or other openings to the outside of no less than 5% of the floor area.
+              </ruleml:Rel>
+              <ruleml:Data xsi:type="xs:decimal">
+                0.05
+              </ruleml:Data>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.2"/>
+    <lrml:toTarget keyref="#1.2.2.b.v2"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.2.2.b.v2">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:In">
+            <ruleml:Rel iri="0010">
+              occupied spaces
+            </ruleml:Rel>
+            <ruleml:Rel iri="0018">
+              in Commercial and Industrial buildings where products listed in NZBC Clause G4.3.3 are generated
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:And>
+        <lrml:Permission iri="devo:Permission">
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0017">
+                  The 5% floor area requirement
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  0.05
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Negation>
+        </lrml:Permission>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              (mechanical ventilation of these spaces is required),
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.2.2.b.v2" under="#1.2.2.a.v2"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.2"/>
+    <lrml:toTarget keyref="#1.2.2.c.v2"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.2.2.c.v2">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Where">
+              <ruleml:Rel iri="0019">
+                household units
+              </ruleml:Rel>
+              <ruleml:Rel iri="0178">
+                where there is only one external wall with opening windows (refer to Paragraph 1.3 for additional requirements if natural ventilation is used).
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Where">
+              <ruleml:Rel iri="0015">
+                accommodation units
+              </ruleml:Rel>
+              <ruleml:Rel iri="0178">
+                where there is only one external wall with opening windows (refer to Paragraph 1.3 for additional requirements if natural ventilation is used).
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:Or>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Permission iri="devo:Permission">
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0017">
+                  The 5% floor area requirement
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  0.05
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Negation>
+        </lrml:Permission>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.2.2.c.v2" under="#1.2.2.a.v2"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.3"/>
+    <lrml:toTarget keyref="#1.2.3"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.2.3">
+   <ruleml:Rule>
+      <ruleml:if>
+        <lrml:Obligation>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0017">
+              Openable building elements
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Achievement">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0020">
+              constructed in a way that allows them to remain fixed in the open position as a means of ventilation during normal occupancy of the building.
+            </ruleml:Rel>
+            <ruleml:Fun iri="buvo:During">
+              <ruleml:Rel iri="0020">
+                constructed in a way that allows them to remain fixed in the open position
+              </ruleml:Rel>
+              <ruleml:Rel iri="0179">
+                as a means of ventilation during normal occupancy of the building.
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.2.4"/>
+    <lrml:toTarget keyref="#1.2.4"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.2.4">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0010">
+              Natural ventilation
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0021">
+              car parks
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Achievement">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0022">
+              comply with the natural ventilation part of AS 1668.2 Section 7.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.1"/>
+    <lrml:toTarget keyref="#1.3.1"/>
+  </lrml:Association>
+
+  <scope keyref="#1.3.1">
+    Paragraphs 1.3.2 to 1.3.9 specify the natural ventilation to both household units and accommodation units with only one external wall, such as those often found in apartments, hotels and motels.
+  </scope>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.2"/>
+    <lrml:toTarget keyref="#1.3.2.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.2.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0014">
+                For kitchens,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0149">
+                bathrooms,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0154">
+                toilets and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0155">
+                laundries
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              located on the external wall,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                natural ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0017">
+                  windows and/or other openings to the outside with a net openable area of no less than 5% of the floor area,
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  0.05
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0151">
+                PLACEHOLDER A
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.2"/>
+    <lrml:toTarget keyref="#1.3.2.b"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.3.2.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Located">
+              <ruleml:Fun iri="buvo:Level">
+                <ruleml:Rel iri="0189">
+                  high level
+                </ruleml:Rel>
+                <ruleml:Rel iri="0024">
+                  trickle ventilators
+                </ruleml:Rel>
+              </ruleml:Fun>
+              <ruleml:Rel iri="0156">
+                located through the external wall or building elements within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:SmallerThan">
+              <ruleml:Rel iri="0150">
+                where the distance between the external wall and opposing wall is less than 6 metres.
+              </ruleml:Rel>
+              <ruleml:Data xsi:type="xs:decimal">
+                6.00
+              </ruleml:Data>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0151">
+            PLACEHOLDER A
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.3"/>
+    <lrml:toTarget keyref="#1.3.3.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.3.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0014">
+                For kitchens,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0149">
+                bathrooms,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0154">
+                toilets and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0155">
+                laundries
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Or>
+            <ruleml:Rel iri="0014">
+              located in the kitchen,
+            </ruleml:Rel>
+            <ruleml:Rel iri="0149">
+              bathroom,
+            </ruleml:Rel>
+            <ruleml:Rel iri="0154">
+              toilet
+            </ruleml:Rel>
+            <ruleml:Rel iri="0155">
+              or laundry,
+            </ruleml:Rel>
+          </ruleml:Or>
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0023">
+                not located on the external wall,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                natural ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+            <ruleml:Atom>
+                <ruleml:Fun iri="buvo:Purpose">
+                  <ruleml:Rel iri="0025">
+                    a passive stack ventilator
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0180">
+                    designed to extract a continuous airflow through the surrounding habitable spaces (see Paragraph 1.3.7 for passive stack ventilators),
+                  </ruleml:Rel>
+                </ruleml:Fun>
+            </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.3"/>
+    <lrml:toTarget keyref="#1.3.3.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.3.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0014">
+                For kitchens,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0149">
+                bathrooms,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0154">
+                toilets and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0155">
+                laundries
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0023">
+                not located on the external wall,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                natural ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0189">
+                    high level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0181">
+                  located within the external wall or
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0189">
+                    high level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0182">
+                  located in building elements that are integrated within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.3"/>
+    <lrml:toTarget keyref="#1.3.3.c"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.3.c">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0014">
+                For kitchens,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0149">
+                bathrooms,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0154">
+                toilets and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0155">
+                laundries
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0183">
+                and not compromising the privacy of the toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0184">
+                and not compromising the privacy of bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0023">
+                not located on the external wall,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                natural ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0026">
+                  permanent openings for airflow between the surrounding habitable spaces of no less than 5% of the combined floor area of the spaces,
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  0.05
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.3"/>
+    <lrml:toTarget keyref="#1.3.3.d"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.3.d">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0014">
+                For kitchens,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0149">
+                bathrooms,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0154">
+                toilets and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0155">
+                laundries
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0023">
+                not located on the external wall,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                natural ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0027">
+                  a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                </ruleml:Rel>
+                <ruleml:Rel iri="0028">
+                  of the habitable space
+                </ruleml:Rel>
+                <ruleml:Rel iri="0014">
+                  the kitchen,
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  10.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0027">
+                  a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                </ruleml:Rel>
+                <ruleml:Rel iri="0028">
+                  of the habitable space
+                </ruleml:Rel>
+                <ruleml:Rel iri="0149">
+                  bathroom,
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  10.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0027">
+                  a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                </ruleml:Rel>
+                <ruleml:Rel iri="0028">
+                  of the habitable space
+                </ruleml:Rel>
+                <ruleml:Rel iri="0154">
+                  toilet or
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  10.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0027">
+                  a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                </ruleml:Rel>
+                <ruleml:Rel iri="0028">
+                  of the habitable space
+                </ruleml:Rel>
+                <ruleml:Rel iri="0155">
+                  laundry
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  10.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.4"/>
+    <lrml:toTarget keyref="#1.3.4.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.4.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              For habitable spaces with both
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              an external wall and
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0152">
+                a permanent opening to a kitchen,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0185">
+                a permanent opening to a bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0186">
+                a permanent opening to a toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0187">
+                a permanent opening to a laundry,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0189">
+                    installing high level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators,
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0181">
+                  located within the external wall or
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0189">
+                    installing high level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators,
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0182">
+                  located in building elements that are integrated within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.4"/>
+    <lrml:toTarget keyref="#1.3.4.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.4.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              For habitable spaces with both
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              an external wall and
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0152">
+                a permanent opening to a kitchen,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0185">
+                a permanent opening to a bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0186">
+                a permanent opening to a toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0187">
+                a permanent opening to a laundry,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Installed">
+                <ruleml:Rel iri="0025">
+                  having a passive stack ventilator installed
+                </ruleml:Rel>
+                <ruleml:Rel iri="0014">
+                  in the kitchen,
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Installed">
+                <ruleml:Rel iri="0025">
+                  having a passive stack ventilator installed
+                </ruleml:Rel>
+                <ruleml:Rel iri="0149">
+                  in the bathroom,
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Installed">
+                <ruleml:Rel iri="0025">
+                  having a passive stack ventilator installed
+                </ruleml:Rel>
+                <ruleml:Rel iri="0154">
+                  in the toilet or
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Installed">
+                <ruleml:Rel iri="0025">
+                  having a passive stack ventilator installed
+                </ruleml:Rel>
+                <ruleml:Rel iri="0155">
+                  in the laundry,
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.4"/>
+    <lrml:toTarget keyref="#1.3.4.c"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.4.c">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              For habitable spaces with both
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              an external wall and
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0152">
+                a permanent opening to a kitchen,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0185">
+                a permanent opening to a bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0186">
+                a permanent opening to a toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0187">
+                a permanent opening to a laundry,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0183">
+                and not compromising the privacy of the toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0184">
+                and not compromising the privacy of bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherEqualTo">
+              <ruleml:Rel iri="0026">
+                permanent openings for airflow between the surrounding habitable spaces of no less than 5% of the combined floor area of the spaces,
+              </ruleml:Rel>
+              <ruleml:Data xsi:type="xs:decimal">
+                0.05
+              </ruleml:Data>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.4"/>
+    <lrml:toTarget keyref="#1.3.4.d"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.4.d">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              For habitable spaces with both
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              an external wall and
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0152">
+                a permanent opening to a kitchen,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0185">
+                a permanent opening to a bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0186">
+                a permanent opening to a toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0187">
+                a permanent opening to a laundry,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherEqualTo">
+              <ruleml:Rel iri="0017">
+                providing a net openable area of windows or other openings to the outside of no less than 5% of the floor area.
+              </ruleml:Rel>
+              <ruleml:Data xsi:type="xs:decimal">
+                0.05
+              </ruleml:Data>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.4"/>
+    <lrml:toTarget keyref="#1.3.4.e"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.4.e">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              For habitable spaces with both
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              an external wall and
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0152">
+                a permanent opening to a kitchen,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0185">
+                a permanent opening to a bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0186">
+                a permanent opening to a toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0187">
+                a permanent opening to a laundry,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0027">
+                  a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                </ruleml:Rel>
+                <ruleml:Rel iri="0028">
+                  of the habitable space
+                </ruleml:Rel>
+                <ruleml:Rel iri="0014">
+                  the kitchen,
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  10.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0027">
+                  a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                </ruleml:Rel>
+                <ruleml:Rel iri="0028">
+                  of the habitable space
+                </ruleml:Rel>
+                <ruleml:Rel iri="0149">
+                  bathroom,
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  10.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0027">
+                  a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                </ruleml:Rel>
+                <ruleml:Rel iri="0028">
+                  of the habitable space
+                </ruleml:Rel>
+                <ruleml:Rel iri="0154">
+                  toilet or
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  10.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0027">
+                  a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                </ruleml:Rel>
+                <ruleml:Rel iri="0028">
+                  of the habitable space
+                </ruleml:Rel>
+                <ruleml:Rel iri="0155">
+                  laundry
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  10.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.5"/>
+    <lrml:toTarget keyref="#1.3.5"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.5">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              For habitable spaces with
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              an external wall and
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0188">
+                no permanent opening to surrounding spaces
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0025">
+              with a passive stack ventilator (from subsection header)
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0017">
+                  windows and/or other openings to the outside with an net openable area of no less than 5% of the floor area, and
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  0.05
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0189">
+                    high level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators,
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0181">
+                  located in building elements that are integrated within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0030">
+                  a distance between the external wall and opposing wall of the habitable spaces of less than 6 metres.
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  6.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.6"/>
+    <lrml:toTarget keyref="#1.3.6"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.6">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              a habitable space
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0031">
+                without openings to the exterior
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0188">
+              via another habitable space
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0010">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:From">
+                <ruleml:Rel iri="0188">
+                  providing from the other habitable space to outside,
+                </ruleml:Rel>
+                <ruleml:Fun iri="lovo:GreatherEqualTo">
+                  <ruleml:Rel iri="0017">
+                    openable windows and/or other openings of net openable area of no less than 5% of the combined floor area of the combined habitable spaces,
+                  </ruleml:Rel>
+                  <ruleml:Data xsi:type="xs:decimal">
+                    0.05
+                  </ruleml:Data>
+                </ruleml:Fun>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0189">
+                    providing high level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0181">
+                  located on the external wall (see Paragraph 1.3.9 for trickle ventilators), sized according to the combined floor area,
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0190">
+                    providing low level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0181">
+                  located on the external wall (see Paragraph 1.3.9 for trickle ventilators), sized according to the combined floor area,
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0026">
+                  providing an area of permanent opening between the two spaces of no less than 5% of the combined floor area of the habitable spaces,
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  0.05
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:SmallerThan">
+                <ruleml:Rel iri="0030">
+                  having a combined distance of the habitable spaces, measured between the external wall and furthest opposing wall, of less than 6 metres.
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  6.00
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.a"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.3.7.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0032">
+              a vertical ventilation shaft which
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0153">
+              uses air buoyancy to ventilate spaces
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0025">
+            Passive stack ventilators
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.7.b">
+   <ruleml:Rule>
+      <ruleml:if>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0025">
+              Passive stack ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0035">
+                be designed in accordance with AS/NZS 4740 Section 3,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0036">
+                be designed to achieve extract airflow rates specified in AS 1668.2 Table B1, using the following parameters:
+                <ruleml:Fun iri="lovo:List">
+                  <ruleml:Fun iri="lovo:Parameter">
+                    <ruleml:Rel iri="0191">
+                      Air Density r =
+                    </ruleml:Rel>
+                    <ruleml:Ind>1.2kg/m3</ruleml:Ind>
+                  </ruleml:Fun>
+                  <ruleml:Fun iri="lovo:Parameter">
+                    <ruleml:Rel iri="0192">
+                      Gravitational Constant g =
+                    </ruleml:Rel>
+                    <ruleml:Ind>9.81 m/s2</ruleml:Ind>
+                  </ruleml:Fun>
+                  <ruleml:Fun iri="lovo:Parameter">
+                    <ruleml:Rel iri="0193">
+                      Temperature Differential DT =
+                    </ruleml:Rel>
+                    <ruleml:Ind>3K</ruleml:Ind>
+                  </ruleml:Fun>
+                  <ruleml:Fun iri="lovo:Parameter">
+                    <ruleml:Rel iri="0194">
+                      Outside Ambient T =
+                    </ruleml:Rel>
+                    <ruleml:Ind>300K</ruleml:Ind>
+                  </ruleml:Fun>
+                </ruleml:Fun>
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Integrate">
+                <ruleml:Rel iri="0025">
+                  Passive stack ventilators
+                </ruleml:Rel>
+                <ruleml:Rel iri="0001">
+                  be integrated into the building
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Negation>
+              <ruleml:Atom>
+                <ruleml:Rel iri="0037">
+                  without decreasing the performance of the building envelope and
+                </ruleml:Rel>
+              </ruleml:Atom>
+            </ruleml:Negation>
+            <ruleml:Negation>
+              <ruleml:Atom>
+                <ruleml:Rel iri="0195">
+                  decreasing the performance the partition walls of the building for external moisture, fire and acoustics,
+                </ruleml:Rel>
+              </ruleml:Atom>
+            </ruleml:Negation>
+            <ruleml:Or>
+              <ruleml:Atom>
+                <ruleml:Fun iri="buvo:Through">
+                  <ruleml:Rel iri="0038">
+                    be capable of drawing air
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    through trickle ventilators
+                  </ruleml:Rel>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="buvo:Through">
+                  <ruleml:Rel iri="0038">
+                    be capable of drawing air
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0196">
+                    permanent openings from the room or adjacent spaces.
+                  </ruleml:Rel>
+                </ruleml:Fun>
+              </ruleml:Atom>
+            </ruleml:Or>
+            <ruleml:Or>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:GreatherThan">
+                  <ruleml:Fun iri="buvo:Of">
+                    <ruleml:Rel iri="0197">
+                      aerodynamic area greater than
+                    </ruleml:Rel>
+                    <ruleml:Rel iri="0196">
+                      The permanent openings to the surrounding spaces
+                    </ruleml:Rel>
+                  </ruleml:Fun>
+                  <ruleml:Fun iri="buvo:Of">
+                    <ruleml:Rel iri="0197">
+                      equivalent aerodynamic area of the
+                    </ruleml:Rel>
+                    <ruleml:Rel iri="0025">
+                      passive stack ventilator
+                    </ruleml:Rel>
+                  </ruleml:Fun>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:GreatherThan">
+                  <ruleml:Fun iri="buvo:Of">
+                    <ruleml:Rel iri="0197">
+                      aerodynamic area greater than
+                    </ruleml:Rel>
+                    <ruleml:Rel iri="0024">
+                      trickle ventilators to the outside
+                    </ruleml:Rel>
+                  </ruleml:Fun>
+                  <ruleml:Fun iri="buvo:Of">
+                    <ruleml:Rel iri="0197">
+                      equivalent aerodynamic area of the
+                    </ruleml:Rel>
+                    <ruleml:Rel iri="0025">
+                      passive stack ventilator
+                    </ruleml:Rel>
+                  </ruleml:Fun>
+                </ruleml:Fun>
+              </ruleml:Atom>
+            </ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0041">
+                  have ventilation ducts and stacks that are insulated in any unheated areas with a minimum thickness of 25 mm
+                </ruleml:Rel>
+                <ruleml:Ind>25 mm</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0198">
+                  have ventilation ducts and stacks that are insulated in any unheated areas of a material having a thermal conductivity of no less than 0.04W/m2K
+                </ruleml:Rel>
+                <ruleml:Ind>0.04W/m2K</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0042">
+                have a condensation trap fitted to the part of the duct above the roof level.
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.c"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.7.c">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0025">
+            Passive stack ventilators
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0033">
+              have no connections from spaces
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.d"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.7.d">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0025">
+            Passive stack ventilators
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Permission iri="devo:Permission">
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:In">
+              <ruleml:Rel iri="0025">
+                passive stack ventilator,
+              </ruleml:Rel>
+              <ruleml:Rel iri="0014">
+                to the kitchen
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Permission>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.3.7.d" under="#1.3.7.c"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.e"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.7.e">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0025">
+              Passive stack ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0019">
+              not be used in household units
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0011">
+                 in combination with mechanical ventilation systems,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.e"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.7.e">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0025">
+              Passive stack ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:ExtractingFrom">
+              <ruleml:Rel iri="0014">
+                when extracting from kitchens:
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:With">
+                <ruleml:Rel iri="0121">
+                  i) maintain the fire separation of the fire separated shaft
+                </ruleml:Rel>
+                <ruleml:Rel iri="0126">
+                  with a pressure-forming intumescent fire collar around a collapsible duct, and
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0127">
+                ii) have ducting, downstream of the fire collar, made of non-combustible material, and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0128">
+                iii) have connections that contain no more than two bends and do not have any duct that is more than 45° to the vertical, and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+
+              <ruleml:Fun iri="buvo:Measure">
+                <ruleml:Rel iri="0129">
+                  iv) have the branch connection to the common duct via a fire shunt of 1800 mm in height (see Figure 1), and
+                </ruleml:Rel>
+                <ruleml:Ind>1800 mm</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0130">
+                v) have the fire shunt and the stack located in a fire separated shaft.
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.g"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.7.g">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0025">
+              Passive stack ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0149">
+                  when extracting from bathrooms
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0154">
+                  when extracting from toilets and
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0155">
+                  when extracting from laundries:
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0121">
+                i) be installed in a fire separated shaft, and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Measure">
+                <ruleml:Rel iri="0129">
+                  ii) have the branch connection to the common extract duct via a fire shunt of 900 mm in height (see Figure 1), and
+                </ruleml:Rel>
+                <ruleml:Ind>900 mm</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0128">
+                iii) have connections that contain no more than two bends and do not have any duct that is more than 45° to the vertical, and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0124">
+                iv) be ducting made of non-combustible material, unless the common extract duct is the only duct in the fire separated shaft.
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.h"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.7.h">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0025">
+              Passive stack ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0149">
+                  when extracting from bathrooms
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0154">
+                  when extracting from toilets and
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0155">
+                  when extracting from laundries:
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0124">
+                iv) be ducting made of non-combustible material,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.7"/>
+    <lrml:toTarget keyref="#1.3.7.i"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.7.i">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0025">
+              Passive stack ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0149">
+                  when extracting from bathrooms
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0154">
+                  when extracting from toilets and
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:ExtractingFrom">
+                <ruleml:Rel iri="0155">
+                  when extracting from laundries:
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0034">
+              unless the common extract duct is the only duct in the fire separated shaft.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Permission iri="devo:Permission">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0124">
+              iv) be ducting made of non-combustible material,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Permission>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.3.7.i" under="#1.3.7.h"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.8"/>
+    <lrml:toTarget keyref="#1.3.8"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.8">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0043">
+            The terminal of a passive stack ventilator
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherThan">
+                <ruleml:Fun iri="buvo:Of">
+                  <ruleml:Rel iri="0197">
+                    have an equivalent aerodynamic area
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0043">
+                    The terminal of a passive stack ventilator
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Fun iri="buvo:Of">
+                  <ruleml:Rel iri="0197">
+                    have an equivalent aerodynamic area
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0044">
+                    greater than the cross-sectional area of the stack,
+                  </ruleml:Rel>
+                </ruleml:Fun>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0045">
+                extend above the roof to at least the ridge height.
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.9"/>
+    <lrml:toTarget keyref="#1.3.9.a"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.3.7.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0046">
+            devices that have an opening to the outside
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0024">
+            Trickle ventilators
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.9"/>
+    <lrml:toTarget keyref="#1.3.9.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.9.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0024">
+            Trickle ventilators
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0047">
+                  have an opening of no less than 2000 mm2 equivalent aerodynamic area,
+                </ruleml:Rel>
+                <ruleml:Ind>2000 mm2</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0048">
+                be located to minimise draughts,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0049">
+                be secured to keep pests and insects out,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0051">
+                be controllable and closable in all conditioned spaces,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0052">
+                be installed in household units, providing they do not contain mechanical supply ventilation,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0054">
+                have the equivalent aerodynamic area, based on the number of occupants, for the space as given in Tables 1 and 2,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0055">
+                PLACEHOLDER B
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.9"/>
+    <lrml:toTarget keyref="#1.3.9.f"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.9.f">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0024">
+              Trickle ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Negation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0011">
+                providing they do not contain mechanical supply ventilation,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Negation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+            <ruleml:Atom>
+              <ruleml:Rel iri="0019">
+                be installed in household units,
+              </ruleml:Rel>
+            </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.9"/>
+    <lrml:toTarget keyref="#1.3.9.e"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#1.3.9.e">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0157">
+              where high and low level trickle ventilators are required,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0158">
+              the high and low level trickle ventilators of approximately the same equivalent aerodynamic area
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0159">
+              and separated by a minimum of 1 metre.
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0160">
+              High level trickle ventilators are located in the top half of the wall.
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0161">
+              Low level trickle ventilators are located in the bottom half of the wall.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0055">
+            PLACEHOLDER B
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.9"/>
+    <lrml:toTarget keyref="#1.3.9.c"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.9.c">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0024">
+              Trickle ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0131">
+              if required by NZBC G6 Airborne and Impact Sound,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0050">
+              have acoustic attenuation,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.3.9"/>
+    <lrml:toTarget keyref="#1.3.9.d"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.3.9.d">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0024">
+              Trickle ventilators
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0132">
+              if installed in a household unit,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0053">
+              have the sum of the equivalent aerodynamic area greater than the sum of the equivalent area of the passive stack ventilator(s),
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.4.1"/>
+    <lrml:toTarget keyref="#1.4.1"/>
+  </lrml:Association>
+
+  <scope keyref="#1.4.1">
+    This section specifies the combined natural and mechanical ventilation requirements for both household units and accommodation units, with one external wall, such as those often found in apartments, hotels and motels. Habitable spaces will be naturally ventilated, and kitchens, bathrooms, toilets and laundries will be ventilated by continuous or intermittent mechanical extract ventilation.
+  </scope>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.4.2"/>
+    <lrml:toTarget keyref="#1.4.2"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.4.2">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              For habitable spaces with both
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              one external wall and
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0152">
+                a permanent opening to a kitchen,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0185">
+                a permanent opening to a bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0186">
+                a permanent opening to a toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0187">
+                a permanent opening to a laundry,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0056">
+              continuous mechanical extract system is installed
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0012">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0189">
+                    high level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0156">
+                  located through the external wall or building elements within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0017">
+                  providing a net openable area of windows or other openings to the outside of no less than 5% of the floor area.
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  0.05
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Or>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:Measure">
+                  <ruleml:Rel iri="0057">
+                    door undercut by 20 mm,
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0014">
+                    the kitchen,
+                  </ruleml:Rel>
+                  <ruleml:Ind>20mm</ruleml:Ind>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:Measure">
+                  <ruleml:Rel iri="0057">
+                    door undercut by 20 mm,
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0149">
+                    bathroom,
+                  </ruleml:Rel>
+                  <ruleml:Ind>20mm</ruleml:Ind>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:Measure">
+                  <ruleml:Rel iri="0057">
+                    door undercut by 20 mm,
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0154">
+                    toilet or
+                  </ruleml:Rel>
+                  <ruleml:Ind>20mm</ruleml:Ind>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:Measure">
+                  <ruleml:Rel iri="0057">
+                    door undercut by 20 mm,
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0155">
+                    laundry
+                  </ruleml:Rel>
+                  <ruleml:Ind>20mm</ruleml:Ind>
+                </ruleml:Fun>
+              </ruleml:Atom>
+            </ruleml:Or>
+            <ruleml:Or>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:SmallerThan">
+                  <ruleml:Rel iri="0027">
+                    a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0028">
+                    of the habitable space
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0014">
+                    the kitchen,
+                  </ruleml:Rel>
+                  <ruleml:Data xsi:type="xs:decimal">
+                    10.00
+                  </ruleml:Data>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:SmallerThan">
+                  <ruleml:Rel iri="0027">
+                    a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0028">
+                    of the habitable space
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0149">
+                    bathroom,
+                  </ruleml:Rel>
+                  <ruleml:Data xsi:type="xs:decimal">
+                    10.00
+                  </ruleml:Data>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:SmallerThan">
+                  <ruleml:Rel iri="0027">
+                    a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0028">
+                    of the habitable space
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0154">
+                    toilet or
+                  </ruleml:Rel>
+                  <ruleml:Data xsi:type="xs:decimal">
+                    10.00
+                  </ruleml:Data>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:SmallerThan">
+                  <ruleml:Rel iri="0027">
+                    a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0028">
+                    of the habitable space
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0155">
+                    laundry
+                  </ruleml:Rel>
+                  <ruleml:Data xsi:type="xs:decimal">
+                    10.00
+                  </ruleml:Data>
+                </ruleml:Fun>
+              </ruleml:Atom>
+            </ruleml:Or>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.4.3"/>
+    <lrml:toTarget keyref="#1.4.3"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.4.3">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0028">
+              For habitable spaces with
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0023">
+              one external wall and
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0152">
+                a permanent opening to a kitchen,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0185">
+                a permanent opening to a bathroom,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0186">
+                a permanent opening to a toilet or
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0187">
+                a permanent opening to a laundry,
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0058">
+              intermittent mechanical extract system is installed
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <lrml:Obligation>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0012">
+                ventilation
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </lrml:Obligation>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0189">
+                    high level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0156">
+                  located through the external wall or building elements within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Located">
+                <ruleml:Fun iri="buvo:Level">
+                  <ruleml:Rel iri="0190">
+                    low level
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0024">
+                    trickle ventilators
+                  </ruleml:Rel>
+                </ruleml:Fun>
+                <ruleml:Rel iri="0156">
+                  located through the external wall or building elements within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0017">
+                  providing a net openable area of windows or other openings to the outside of no less than 5% of the floor area.
+                </ruleml:Rel>
+                <ruleml:Data xsi:type="xs:decimal">
+                  0.05
+                </ruleml:Data>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Or>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:Measure">
+                  <ruleml:Rel iri="0057">
+                    door undercut by 20 mm,
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0014">
+                    the kitchen,
+                  </ruleml:Rel>
+                  <ruleml:Ind>20mm</ruleml:Ind>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:Measure">
+                  <ruleml:Rel iri="0057">
+                    door undercut by 20 mm,
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0149">
+                    bathroom,
+                  </ruleml:Rel>
+                  <ruleml:Ind>20mm</ruleml:Ind>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:Measure">
+                  <ruleml:Rel iri="0057">
+                    door undercut by 20 mm,
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0154">
+                    toilet or
+                  </ruleml:Rel>
+                  <ruleml:Ind>20mm</ruleml:Ind>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="lovo:Measure">
+                  <ruleml:Rel iri="0057">
+                    door undercut by 20 mm,
+                  </ruleml:Rel>
+                  <ruleml:Rel iri="0155">
+                    laundry
+                  </ruleml:Rel>
+                  <ruleml:Ind>20mm</ruleml:Ind>
+                </ruleml:Fun>
+              </ruleml:Atom>
+            </ruleml:Or>
+            <ruleml:Or>
+              <ruleml:Atom>
+                <ruleml:Fun iri="buvo:Distance">
+                  <ruleml:Rel iri="0014">
+                    the kitchen,
+                  </ruleml:Rel>
+                  <ruleml:Fun iri="lovo:SmallerThan">
+                    <ruleml:Rel iri="0030">
+                      having a maximum dimension between the external wall and the furthest internal opposing wall, when measured across the combined habitable space and the kitchen, bathroom, toilet, or laundry, of less than 6 metres.
+                    </ruleml:Rel>
+                    <ruleml:Data xsi:type="xs:decimal">
+                      6.00
+                    </ruleml:Data>
+                  </ruleml:Fun>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="buvo:Distance">
+                  <ruleml:Rel iri="0149">
+                    bathroom,
+                  </ruleml:Rel>
+                  <ruleml:Fun iri="lovo:SmallerThan">
+                    <ruleml:Rel iri="0030">
+                      having a maximum dimension between the external wall and the furthest internal opposing wall, when measured across the combined habitable space and the kitchen, bathroom, toilet, or laundry, of less than 6 metres.
+                    </ruleml:Rel>
+                    <ruleml:Data xsi:type="xs:decimal">
+                      6.00
+                    </ruleml:Data>
+                  </ruleml:Fun>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="buvo:Distance">
+                  <ruleml:Rel iri="0154">
+                    toilet or
+                  </ruleml:Rel>
+                  <ruleml:Fun iri="lovo:SmallerThan">
+                    <ruleml:Rel iri="0030">
+                      having a maximum dimension between the external wall and the furthest internal opposing wall, when measured across the combined habitable space and the kitchen, bathroom, toilet, or laundry, of less than 6 metres.
+                    </ruleml:Rel>
+                    <ruleml:Data xsi:type="xs:decimal">
+                      6.00
+                    </ruleml:Data>
+                  </ruleml:Fun>
+                </ruleml:Fun>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Fun iri="buvo:Distance">
+                  <ruleml:Rel iri="0155">
+                    laundry
+                  </ruleml:Rel>
+                  <ruleml:Fun iri="lovo:SmallerThan">
+                    <ruleml:Rel iri="0030">
+                      having a maximum dimension between the external wall and the furthest internal opposing wall, when measured across the combined habitable space and the kitchen, bathroom, toilet, or laundry, of less than 6 metres.
+                    </ruleml:Rel>
+                    <ruleml:Data xsi:type="xs:decimal">
+                      6.00
+                    </ruleml:Data>
+                  </ruleml:Fun>
+                </ruleml:Fun>
+              </ruleml:Atom>
+            </ruleml:Or>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.4.3" under="#1.4.2"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.1"/>
+    <lrml:toTarget keyref="#1.5.1.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.1.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0011">
+            Mechanical ventilation systems
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Or>
+              <ruleml:Atom>
+                <ruleml:Rel iri="0059">
+                  outdoor air supply shall be designed and equipment installed to comply with NZS 4303, or
+                </ruleml:Rel>
+              </ruleml:Atom>
+              <ruleml:Atom>
+                <ruleml:Rel iri="0052">
+                  outdoor air supply shall be designed and equipment installed to comply with AS 1668.2 (excluding Table A1 and Sections 3 and 7),
+                </ruleml:Rel>
+              </ruleml:Atom>
+            </ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0120">
+                and to provide outdoor air to occupied spaces at the flow rates given in NZS 4303 Table 2,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0060">
+                air-handling systems shall be installed and maintained to the requirements of AS/NZS 3666.1 and AS/NZS 3666.2,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0162">
+                extract ventilation shall:
+                  i) be constructed so that any products listed in Clause G4.3.3 are removed, collected or diluted by ventilation rates and methods set out in AS 1668.2 Section 5
+                    COMMENT:
+                      Commercial kitchen extract ventilation is included in AS 1668.2 Section 5.
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0062">
+                outdoor air intakes shall be located to avoid contamination from any local source in accordance with AS 1668.2 Clause 4.3.1 and NZS 4303 Clause 5.5,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0063">
+                recirculated air systems shall comply with AS 1668.2 Clause 4.5,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0064">
+                contaminated air discharge systems shall discharge contaminated air in a way that complies with AS 1668.2 Clause 5.10,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0065">
+                filtration shall comply with AS 1668.2 Clause 4.4,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0066">
+                commissioning shall comply with CIBSE Code Series A.
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.1"/>
+    <lrml:toTarget keyref="#1.5.1.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.1.b">
+   <ruleml:Rule>
+     <ruleml:if>
+       <ruleml:And>
+         <ruleml:Fun iri="buvo:WhereProvided">
+           <ruleml:Rel iri="0122">
+             extract ventilation shall:
+           </ruleml:Rel>
+           <ruleml:Rel iri="0163">
+             ii) where provided to remove moisture and other contaminants
+           </ruleml:Rel>
+         </ruleml:Fun>
+         <ruleml:Atom>
+           <ruleml:Rel iri="0019">
+             household units
+           </ruleml:Rel>
+         </ruleml:Atom>
+         <ruleml:Or>
+           <ruleml:Atom>
+             <ruleml:Rel iri="0014">
+               For kitchens,
+             </ruleml:Rel>
+           </ruleml:Atom>
+           <ruleml:Atom>
+             <ruleml:Rel iri="0149">
+               bathrooms,
+             </ruleml:Rel>
+           </ruleml:Atom>
+           <ruleml:Atom>
+             <ruleml:Rel iri="0154">
+               toilets and
+             </ruleml:Rel>
+           </ruleml:Atom>
+           <ruleml:Atom>
+             <ruleml:Rel iri="0155">
+               laundries
+             </ruleml:Rel>
+           </ruleml:Atom>
+         </ruleml:Or>
+       </ruleml:And>
+     </ruleml:if>
+     <ruleml:then>
+       <lrml:Obligation iri="devo:Maintenance">
+         <ruleml:Atom>
+           <ruleml:Rel iri="0123">
+             exhaust the air to the outside at flow rates given in AS 1668.2, Table B1, and
+           </ruleml:Rel>
+         </ruleml:Atom>
+       </lrml:Obligation>
+     </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.1"/>
+    <lrml:toTarget keyref="#1.5.1.c"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.1.c">
+   <ruleml:Rule>
+     <ruleml:if>
+       <ruleml:And>
+         <ruleml:Fun iri="buvo:WhereProvided">
+           <ruleml:Rel iri="0122">
+             extract ventilation shall:
+           </ruleml:Rel>
+           <ruleml:Rel iri="0164">
+             iii) where provided for extract
+           </ruleml:Rel>
+         </ruleml:Fun>
+         <ruleml:Atom>
+           <ruleml:Fun iri="buvo:Containing">
+             <ruleml:Rel iri="0001">
+               buildings
+             </ruleml:Rel>
+             <ruleml:Rel iri="0019">
+               household units
+             </ruleml:Rel>
+           </ruleml:Fun>
+         </ruleml:Atom>
+         <ruleml:Or>
+           <ruleml:Atom>
+             <ruleml:Rel iri="0014">
+               For kitchens,
+             </ruleml:Rel>
+           </ruleml:Atom>
+           <ruleml:Atom>
+             <ruleml:Rel iri="0149">
+               bathrooms,
+             </ruleml:Rel>
+           </ruleml:Atom>
+           <ruleml:Atom>
+             <ruleml:Rel iri="0154">
+               toilets and
+             </ruleml:Rel>
+           </ruleml:Atom>
+           <ruleml:Atom>
+             <ruleml:Rel iri="0155">
+               laundries
+             </ruleml:Rel>
+           </ruleml:Atom>
+         </ruleml:Or>
+       </ruleml:And>
+     </ruleml:if>
+     <ruleml:then>
+       <lrml:Obligation iri="devo:Maintenance">
+         <ruleml:Atom>
+           <ruleml:Rel iri="0125">
+             refer to Paragraphs 1.5.2 and 1.5.3.
+           </ruleml:Rel>
+         </ruleml:Atom>
+       </lrml:Obligation>
+     </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.2"/>
+    <lrml:toTarget keyref="#1.5.2"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.2">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              IMPLICIT
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0067">
+              Extract ventilation
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0014">
+              from kitchens
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Containing">
+              <ruleml:Rel iri="0001">
+                buildings
+              </ruleml:Rel>
+              <ruleml:Rel iri="0019">
+                household units
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0069">
+                maintain the fire separation of the fire separated shaft with a pressure-forming intumescent fire collar around a collapsible duct,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0070">
+                have ducting, downstream of the fire collar, made of non-combustible material,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0071">
+                have the branch connection to the common extract duct located in a fire separated shaft,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0072">
+                have the fire shunt and common extract duct located in a separated shaft.
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.3"/>
+    <lrml:toTarget keyref="#1.5.3.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.3.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              IMPLICIT
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0067">
+              Extract ventilation
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0149">
+                bathrooms,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0154">
+                toilets and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0155">
+                laundries
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Containing">
+              <ruleml:Rel iri="0001">
+                buildings
+              </ruleml:Rel>
+              <ruleml:Rel iri="0019">
+                household units
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0074">
+                be installed in a fire separated shaft,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Measure">
+                <ruleml:Rel iri="0129">
+                  have the branch connection to the common extract duct via a fire shunt of 900 mm in height,
+                </ruleml:Rel>
+                <ruleml:Ind>900 mm</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.3"/>
+    <lrml:toTarget keyref="#1.5.3.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.3.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              IMPLICIT
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0067">
+              Extract ventilation
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0149">
+                bathrooms,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0154">
+                toilets and
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0155">
+                laundries
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Containing">
+              <ruleml:Rel iri="0001">
+                buildings
+              </ruleml:Rel>
+              <ruleml:Rel iri="0019">
+                household units
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0135">
+              unless the common extract duct is the only duct in the fire separated shaft.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0076">
+              be ducting made of non-combustible material,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.4"/>
+    <lrml:toTarget keyref="#1.5.4"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.4">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              Mechanical ventilation
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0021">
+              of car parks
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0077">
+              comply with the mechanical ventilation part of AS 1668.2 Section 7.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.5"/>
+    <lrml:toTarget keyref="#1.5.5"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.5">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0001">
+              Building interiors
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              ventilated by mechanical systems
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0078">
+              incorporating filtration
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0079">
+              maintained at a positive pressure.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#1.4.4" under="#1.5.5"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="1.5.6"/>
+    <lrml:toTarget keyref="#1.5.6"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#1.5.6">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              Spaces in which mechanical ventilation
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0080">
+              remove or collect contaminants
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0081">
+              maintained at negative pressure relative to other spaces in the building.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.1"/>
+    <lrml:toTarget keyref="#2.1.1.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.1.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0010">
+              Natural ventilation systems
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0082">
+              for appliances burning gas fuel
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0083">
+              designed to operate under natural draught conditions
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:Equal">
+              <ruleml:Rel iri="0061">
+                Supply air under equal pressure conditions to the burners and
+              </ruleml:Rel>
+              <ruleml:Rel iri="0084">
+                Supply air under equal pressure conditions to the draught diverter
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.1"/>
+    <lrml:toTarget keyref="#2.1.1.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.1.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0010">
+              Natural ventilation systems
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0082">
+              for appliances burning gas fuel
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0083">
+              designed to operate under natural draught conditions
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherThan">
+              <ruleml:Rel iri="0068">
+                For non room-sealed appliances having a combined gas input exceeding 1 kW for each m3 of the space in which they are installed,
+              </ruleml:Rel>
+              <ruleml:Ind>1 kW for each m3</ruleml:Ind>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0085">
+              be provided with vents, in addition to the ventilation required by Paragraphs 1.1 and 1.2. The vents shall be sized and located according to Paragraphs 2.1.3 to 2.1.8.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.2"/>
+    <lrml:toTarget keyref="#2.1.2.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.2.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0086">
+              Domestic gas cookers in non room-sealed spaces
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0087">
+              also used for sleeping
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0088">
+              permanent venting to the outside.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.2"/>
+    <lrml:toTarget keyref="#2.1.2.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.2.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0088">
+            The size of the vent
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0089">
+                appropriate to the gas input to the cooker
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0090">
+                be subject to specific design
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.3"/>
+    <lrml:toTarget keyref="#2.1.3.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.3.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0088">
+              Vent sizes
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0073">
+              for spaces vented directly to the outside,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0189">
+                Two permanent vent openings, one high level
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0192">
+                one low level,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherThan">
+                <ruleml:Rel iri="0093">
+                  each with a free ventilation area per kW of gas input (of all appliances in the space) of no less than:
+                    a) 1200 mm2
+                </ruleml:Rel>
+                <ruleml:Ind>1200 mm2</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.3"/>
+    <lrml:toTarget keyref="#2.1.3.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.3.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0088">
+              Vent sizes
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0136">
+              for spaces vented via adjacent spaces.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0189">
+                Two permanent vent openings, one high level
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0190">
+                one low level,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherThan">
+                <ruleml:Rel iri="0093">
+                  each with a free ventilation area per kW of gas input (of all appliances in the space) of no less than:
+                    b) 2300 mm2
+                </ruleml:Rel>
+                <ruleml:Ind>2300 mm2</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.4"/>
+    <lrml:toTarget keyref="#2.1.4.OUTDATED"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.4.OUTDATED">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0088">
+              IMPLICIT
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0094">
+              plant rooms and boiler rooms infrequently occupied by people.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Permission iri="devo:Permission">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0095">
+              The vent opening areas given in Paragraph 2.1.3 may be halved
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Permission>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#2.1.4" under="#2.1.3"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.4"/>
+    <lrml:toTarget keyref="#2.1.4.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.4.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0088">
+              Vent sizes
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0073">
+              for spaces vented directly to the outside,
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0094">
+              plant rooms and boiler rooms infrequently occupied by people.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0189">
+                Two permanent vent openings, one high level
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0192">
+                one low level,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherThan">
+                <ruleml:Rel iri="0093">
+                  each with a free ventilation area per kW of gas input (of all appliances in the space) of no less than:
+                    a) 1200 mm2
+                </ruleml:Rel>
+                <ruleml:Ind>600 mm2</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#2.1.4.a" under="#2.1.3.a"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.4"/>
+    <lrml:toTarget keyref="#2.1.4.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.4.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0088">
+              Vent sizes
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0136">
+              for spaces vented via adjacent spaces.
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0094">
+              plant rooms and boiler rooms infrequently occupied by people.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0189">
+                Two permanent vent openings, one high level
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0190">
+                one low level,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherThan">
+                <ruleml:Rel iri="0093">
+                  each with a free ventilation area per kW of gas input (of all appliances in the space) of no less than:
+                    b) 2300 mm2
+                </ruleml:Rel>
+                <ruleml:Ind>1150 mm2</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:OverrideStatement>
+    <lrml:Override over="#2.1.4.b" under="#2.1.3.b"/>
+  </lrml:OverrideStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.5"/>
+    <lrml:toTarget keyref="#2.1.5"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.5">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0088">
+            Vent openings
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherThan">
+                <ruleml:Rel iri="0096">
+                  vertical dimensions of no less than 50 mm
+                </ruleml:Rel>
+                <ruleml:Ind>50 mm</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherThan">
+                <ruleml:Rel iri="0097">
+                  no dimension of less than 6.0 mm in any other direction.
+                </ruleml:Rel>
+                <ruleml:Ind>6.0 mm</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.6"/>
+    <lrml:toTarget keyref="#2.1.6.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.6.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:Location">
+            <ruleml:Rel iri="0190">
+              Low-level vents
+            </ruleml:Rel>
+            <ruleml:Rel iri="0088">
+              Low-level vents
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherThan">
+              <ruleml:Rel iri="0098">
+                have their lower edge no more than 100 mm above floor level
+              </ruleml:Rel>
+              <ruleml:Ind>100 mm</ruleml:Ind>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.6"/>
+    <lrml:toTarget keyref="#2.1.6.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.1.6.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Fun iri="buvo:Location">
+            <ruleml:Rel iri="0189">
+              upper-level vents
+            </ruleml:Rel>
+            <ruleml:Rel iri="0088">
+              upper-level vents
+            </ruleml:Rel>
+          </ruleml:Fun>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherThan">
+              <ruleml:Rel iri="0099">
+                have their lower edge no less than 75 mm above the top of the draught diverter relief opening.
+              </ruleml:Rel>
+              <ruleml:Ind>75 mm</ruleml:Ind>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.7"/>
+    <lrml:toTarget keyref="#2.1.7"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#2.1.7">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0100">
+              A louvred door
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="lovo:GreatherThan">
+              <ruleml:Rel iri="0101">
+                the bottom of the free area extends to not less than 100 mm above the floor,
+              </ruleml:Rel>
+              <ruleml:Ind>100 mm</ruleml:Ind>
+            </ruleml:Fun>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Distance">
+              <ruleml:Rel iri="0102">
+                the requisite high-level free area is available from the level of 75 mm above the draught diverter relief opening.
+              </ruleml:Rel>
+              <ruleml:Ind>75 mm</ruleml:Ind>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0010">
+            acceptable method of ventilation
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.1.8"/>
+    <lrml:toTarget keyref="#2.1.8"/>
+  </lrml:Association>
+
+  <lrml:ConstitutiveStatement key="#2.1.8">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0088">
+              IMPLICIT
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0094">
+              In plant room or boiler room installations
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0103">
+              provided it reaches from floor to ceiling
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0104">
+              has a total free area equivalent to that required for the two separate vents.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Location">
+              <ruleml:Rel iri="0190">
+                low-
+              </ruleml:Rel>
+              <ruleml:Rel iri="0088">
+                low-
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Location">
+              <ruleml:Rel iri="0189">
+                high-level vents may be combined into a single opening
+              </ruleml:Rel>
+              <ruleml:Rel iri="0088">
+                high-level vents may be combined into a single opening
+              </ruleml:Rel>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:ConstitutiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.2.1"/>
+    <lrml:toTarget keyref="#2.2.1"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.2.1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0011">
+            When mechanical ventilation is used
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0105">
+                Mechanical supply with mechanical extraction,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0106">
+                Mechanical supply with natural exhaust.
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.2.2"/>
+    <lrml:toTarget keyref="#2.2.2.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.2.2.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              A mechanical ventilation system
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0138">
+              for forced or induced draught appliances, and
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Rate">
+              <ruleml:Rel iri="0107">
+                For each kW of gas consumption (of all appliances in the plant room) provide outdoor air at the rate of:
+      						i) 3.6 m3/h
+              </ruleml:Rel>
+              <ruleml:Ind>3.6 m3/h per kW of gas</ruleml:Ind>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.2.2"/>
+    <lrml:toTarget keyref="#2.2.2.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.2.2.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0011">
+              A mechanical ventilation system
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0139">
+              for appliances with atmospheric burners,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Fun iri="buvo:Rate">
+              <ruleml:Rel iri="0107">
+                For each kW of gas consumption (of all appliances in the plant room) provide outdoor air at the rate of:
+                  ii) 7.2 m3/h
+              </ruleml:Rel>
+              <ruleml:Ind>7.2 m3/h per kW of gas</ruleml:Ind>
+            </ruleml:Fun>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.2.2"/>
+    <lrml:toTarget keyref="#2.2.2.c"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.2.2.c">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0011">
+            A mechanical ventilation system
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Rate">
+                <ruleml:Rel iri="0108">
+                  Remove exhaust air from the room either:
+        						i) mechanically at one third the inlet rate, or
+                </ruleml:Rel>
+                <ruleml:Ind>1/3 of the inlet</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="buvo:Rate">
+                <ruleml:Rel iri="0141">
+                  Remove exhaust air from the room either:
+        						ii) naturally via high-level openings having a free ventilation area of no less than 600 mm2 per kW of total gas consumption for all appliances in the room.
+                </ruleml:Rel>
+                <ruleml:Ind>600 mm2 per kW of total gas consumption</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.3.1"/>
+    <lrml:toTarget keyref="#2.3.1.a"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.3.1.a">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0109">
+            A flue system
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Or>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0110">
+                  The cross-sectional area of a natural draught flue system external to the appliances,
+                </ruleml:Rel>
+                <ruleml:Rel iri="0075">
+                  no less than the cross-sectional area of the appliance outlet,
+                </ruleml:Rel>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0111">
+                The flue designed to comply with AS/NZS 5601.1, section 6.7 and Appendix H, and (Amend 3 Feb 2014)
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:Or>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.3.1"/>
+    <lrml:toTarget keyref="#2.3.1.b"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.3.1.b">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0109">
+              A flue system
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0112">
+              If a draught diverter is not fitted:
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0142">
+              unless the discharge at other locations can be achieved without hazard to persons, property or appliance operation,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0143">
+    					i) flue products discharged to the atmosphere only at the flue terminal,
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.3.1"/>
+    <lrml:toTarget keyref="#2.3.1.c"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.3.1.c">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0109">
+              A flue system
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0112">
+              If a draught diverter is not fitted:
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0144">
+  						ii) a method of automatically shutting down the main burners of forced or induced draught appliances, should the normal free discharge of the flue be interrupted.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.3.2"/>
+    <lrml:toTarget keyref="#2.3.2"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.3.2">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0113">
+              Draught diverter installations shall discharge the total
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0109">
+              flue products
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0114">
+              including excess air and draught diverter dilution air, at the flue terminal without spillage from the skirt of the draught diverter.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="2.4.1"/>
+    <lrml:toTarget keyref="#2.4.1"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#2.4.1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:And>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0109">
+              The location of a flue terminal
+            </ruleml:Rel>
+          </ruleml:Atom>
+          <ruleml:Atom>
+            <ruleml:Rel iri="0137">
+              on a dwelling
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </ruleml:And>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Obligation iri="devo:Maintenance">
+          <ruleml:And>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0115">
+                Outlets from natural draught flues or chimneys, positioned relative to surrounding construction to avoid wind causing down draughts in the flue,
+              </ruleml:Rel>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0116">
+                  Flue pipes which extend through the roof, terminated no closer than:
+        						i) 500 mm to the nearest part of any roof,
+                </ruleml:Rel>
+                <ruleml:Ind>500 mm to the nearest part of any roof,</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0145">
+                  Flue pipes which extend through the roof, terminated no closer than:
+        						ii) 2.0 m to the roof level of a flat roof intended for personal or public use, and
+                </ruleml:Rel>
+                <ruleml:Ind>2.0 m to the roof level of a flat roof intended for personal or public use, and</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Fun iri="lovo:GreatherEqualTo">
+                <ruleml:Rel iri="0146">
+                  Flue pipes which extend through the roof, terminated no closer than:
+        						iii) 500 mm above any parapet,
+                </ruleml:Rel>
+                <ruleml:Ind>iii) 500 mm above any parapet,</ruleml:Ind>
+              </ruleml:Fun>
+            </ruleml:Atom>
+            <ruleml:Atom>
+              <ruleml:Rel iri="0117">
+                Flues which terminate on the wall of a building located clear of inlets for outside air in accordance with the minimum clearances specified in AS/NZS 5601.1, section 6.9 and Figure 6.2.
+              </ruleml:Rel>
+            </ruleml:Atom>
+          </ruleml:And>
+        </lrml:Obligation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="3.0"/>
+    <lrml:toTarget keyref="#3.0"/>
+  </lrml:Association>
+
+  <scope keyref="#3.0">
+    Another Solution for Gas-fuel Appliances
+  </scope>
+
+  <lrml:Association>
+    <lrml:appliesSource keyref="3.0.1"/>
+    <lrml:toTarget keyref="#3.0.1"/>
+  </lrml:Association>
+
+  <lrml:PrescriptiveStatement key="#3.0.1">
+   <ruleml:Rule>
+      <ruleml:if>
+        <ruleml:Atom>
+          <ruleml:Rel iri="0082">
+            IMPLICIT (Gas-fuel Appliances)
+          </ruleml:Rel>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <lrml:Permission iri="devo:Permission">
+          <ruleml:Atom>
+            <ruleml:Rel iri="0119">
+              AS/NZS 5601.1 Sections 1, 3, 4, 5 and 6 and Appendices A – M and O - R is an Acceptable Solution, but may exceed the performance criteria of NZBC G4.
+            </ruleml:Rel>
+          </ruleml:Atom>
+        </lrml:Permission>
+      </ruleml:then>
+    </ruleml:Rule>
+  </lrml:PrescriptiveStatement>
+
+</lrml:LegalRuleML>

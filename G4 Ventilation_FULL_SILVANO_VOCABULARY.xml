@@ -1,0 +1,1462 @@
+<?xml version="1.0"?>
+<vocabulary>
+  <term iri="0175">
+      <atom>
+        Adequate
+      </atom>
+      <description>
+        Adequate to achieve the objectives of the Building Code.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Atmospheric burner
+      </atom>
+      <description>
+        A burner system where all the air for combustion is induced by the inspirating effect of a gas injector and/or by natural draught in the combustion chamber without mechanical assistance.
+      </description>
+  </term>
+  <term iri="0001">
+      <atom>
+        Building
+      </atom>
+      <description>
+        has the meaning ascribed to it by sections 8 and 9 of the Building Act 2004.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Building element
+      </atom>
+      <description>
+        Any structural and non-structural component or assembly incorporated into or associated with a building. Included are fixtures, services, drains, permanent mechanical installations for access, glazing, partitions, ceilings and temporary supports.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Chimney
+      </atom>
+      <description>
+        A non-combustible structure which encloses one or more flues, fireplaces or other heating appliances.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Common extract duct
+      </atom>
+      <description>
+        A mechanical ventilation duct that extracts from different household units, and may contain air, moisture and contaminant.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+      </atom>
+      <description>
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Construct
+      </atom>
+      <description>
+        In relation to a building, includes to design, build, erect, prefabricate and relocate the building.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Draught diverter
+      </atom>
+      <description>
+        A device, without moving parts, fitted in the flue of an appliance for isolating the combustion system from the effects of pressure changes in the secondary flue.
+      </description>
+  </term>
+  <term iri="0197">
+      <atom>
+        Equivalent aerodynamic area
+      </atom>
+      <description>
+        The area of an equivalent aerodynamically perfect orifice, and equals the penetration area required by the natural ventilation device multiplied by the discharge coefficient determined under test.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Fire separation
+      </atom>
+      <description>
+        Any building element which separates firecells or firecells and safe paths, and provides a specific fire resistance rating.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Fixture
+      </atom>
+      <description>
+        An article intended to remain permanently attached to and form part of a building.
+      </description>
+  </term>
+  <term iri="0109">
+      <atom>
+        Flue
+      </atom>
+      <description>
+        The passage through which the products of combustion are conveyed to the outside.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Forced or induced draught appliance
+      </atom>
+      <description>
+        An appliance where all or part of the air for combustion is provided by a fan or other mechanical device which is an integral part of the combustion system.
+      </description>
+  </term>
+  <term iri="0028">
+      <atom>
+        Habitable space
+      </atom>
+      <description>
+        A space used for activities normally associated with domestic living, but excludes any bathroom, laundry, water closet, pantry, walk-in wardrobe, corridor, hallway, lobby, clothes-drying room, or other space of a specialised nature occupied neither frequently nor for extended periods.
+      </description>
+  </term>
+  <term iri="0019">
+      <atom>
+        Household unit
+      </atom>
+      <description>
+        a) means any building or group of buildings, or part of a building or group of buildings, that is:
+          i) used, or intended to be used, only or mainly for residential purposes; and
+          ii) occupied, or intended to be occupied, exclusively as the home or residence of not more than one household; but
+        b) does not include a hostel, boarding house or other specialised accommodation.
+      </description>
+  </term>
+  <term iri="0004">
+      <atom>
+        Intended use
+      </atom>
+      <description>
+        in relation to a building:
+          a) includes any or all of the following:
+            i) any reasonably foreseeable occasional other use that is not incompatible with the intended use; and
+            ii) normal maintenance; and
+            iii) activities taken in response to fire or any other reasonably foreseeable emergency
+          b) but does not include any other maintenance and repairs or rebuilding.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Natural draught
+      </atom>
+      <description>
+        The flow produced by the tendency of warmed gases to rise.
+      </description>
+  </term>
+  <term iri="0017">
+      <atom>
+        Net openable area
+      </atom>
+      <description>
+        is the area of windows or doors or other opening measured on the face dimensions of the openable building element concerned.
+      </description>
+  </term>
+  <term iri="0179">
+      <atom>
+        Occupied space
+      </atom>
+      <description>
+        Any space within a building in which a person will be present from time to time during the intended use of the building.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Outdoor air
+      </atom>
+      <description>
+        Air as typically comprising by volume:
+          i) oxygen 20.94%
+          ii) carbon dioxide 0.03%
+          iii) nitrogen and other inert gases 79.03%.
+      </description>
+  </term>
+  <term iri="0025">
+      <atom>
+        Passive stack ventilator
+      </atom>
+      <description>
+        A system including a ventilation shaft which uses natural draught to ventilate spaces.
+      </description>
+  </term>
+  <term iri="0196">
+      <atom>
+        Permanent opening
+      </atom>
+      <description>
+        An opening which cannot be closed, this implies that doors, windows etc are NOT permanent openings, although door undercuts are.
+      </description>
+  </term>
+  <term iri="">
+      <atom>
+        Room-sealed appliance
+      </atom>
+      <description>
+        An appliance designed so that air for combustion neither enters from, nor combustion products enter into, the room in which the appliance is located.
+      </description>
+  </term>
+  <term iri="0024">
+      <atom>
+        Trickle ventilator
+      </atom>
+      <description>
+        A controllable ventilation opening through the external envelope to the outside to provide background ventilation.
+      </description>
+  </term>
+  <term iri="0174">
+      <atom>
+        Spaces
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0002">
+      <atom>
+        ventilation
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0003">
+      <atom>
+        consistent with their maximum occupancy
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0165">
+      <atom>
+        domestic living
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0149">
+    <atom>
+      bathroom,
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0155">
+    <atom>
+      laundry,
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0154">
+    <atom>
+      toilets
+    </atom>
+    <description>
+      water closet and other synonyms
+    </description>
+  </term>
+  <term iri="0166">
+    <atom>
+      pantry,
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0167">
+    <atom>
+      walk-in wardrobe,
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0168">
+    <atom>
+      corridor,
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0169">
+    <atom>
+      hallway,
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0170">
+    <atom>
+      lobby,
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0171">
+    <atom>
+      clothes-drying room, or
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0172">
+    <atom>
+      other space of a specialised nature occupied neither frequently
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0173">
+    <atom>
+      nor for extended periods.
+    </atom>
+    <description>
+      other space of a specialised nature not occupied for extended periods.
+    </description>
+  </term>
+  <term iri="0005">
+    <atom>
+      the air-flow rate (and consequently number of air changes)
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0011">
+    <atom>
+      In ducted mechanical ventilation systems
+    </atom>
+    <description>
+      mechanical ventilation systems
+    </description>
+  </term>
+  <term iri="0006">
+    <atom>
+      verified using the methods of measurement given in the CIBSE Code Series A, Appendix A3.1.
+    </atom>
+    <description>
+
+    </description>
+  </term>
+  <term iri="0007">
+      <atom>
+        For determining the volume of outdoor air,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0008">
+      <atom>
+        measurements shall be taken
+      </atom>
+      <description>
+        air quality measurments
+      </description>
+  </term>
+  <term iri="0176">
+      <atom>
+        close to the outdoor air inlet.
+      </atom>
+      <description>
+        outdoor air inlet.
+      </description>
+  </term>
+  <term iri="0147">
+      <atom>
+        by demonstrating that contaminant levels
+      </atom>
+      <description>
+        air contaminant levels
+      </description>
+  </term>
+  <term iri="0177">
+      <atom>
+        do not exceed the limits recommended in “Workplace Exposure Standards and Biological Exposure Indices 7th Edition”.
+      </atom>
+      <description>
+        limits recommended in “Workplace Exposure Standards and Biological Exposure Indices 7th Edition”.
+      </description>
+  </term>
+  <term iri="0148">
+      <atom>
+        The acceptability of indoor air purity for workplaces
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0009">
+      <atom>
+        by a flow of outdoor air through the building envelope
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0010">
+      <atom>
+        natural ventilation (refer to Paragraphs 1.2 and 1.3)
+      </atom>
+      <description>
+        natural ventilation
+      </description>
+  </term>
+  <term iri="0012">
+      <atom>
+        a combination of mechanical and natural ventilation (refer to Paragraph 1.4).
+      </atom>
+      <description>
+        combination of mechanical and natural ventilation
+      </description>
+  </term>
+  <term iri="0013">
+      <atom>
+        containing Type 5 fire alarm systems
+      </atom>
+      <description>
+        Type 5 fire alarm systems
+      </description>
+  </term>
+  <term iri="0014">
+      <atom>
+        installed in kitchens.
+      </atom>
+      <description>
+        kitchens
+      </description>
+  </term>
+  <term iri="0016">
+      <atom>
+        small spaces such as hallways and lobbies in household units.
+      </atom>
+      <description>
+        small spaces
+      </description>
+  </term>
+  <term iri="0018">
+      <atom>
+        in Commercial and Industrial buildings where products listed in NZBC Clause G4.3.3 are generated
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0178">
+      <atom>
+        where there is only one external wall with opening windows (refer to Paragraph 1.3 for additional requirements if natural ventilation is used).
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0015">
+      <atom>
+        accommodation units
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0020">
+      <atom>
+        constructed in a way that allows them to remain fixed in the open position as a means of ventilation during normal occupancy of the building.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0021">
+      <atom>
+        car parks
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0022">
+      <atom>
+        comply with the natural ventilation part of AS 1668.2 Section 7.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0023">
+      <atom>
+        located on the external wall,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0151">
+      <atom>
+        PLACEHOLDER A
+      </atom>
+      <description>
+        ventilation requirements for some habitable and not habitable spaces located near an external wall
+      </description>
+  </term>
+  <term iri="0156">
+      <atom>
+        located through the external wall or building elements within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0150">
+      <atom>
+        where the distance between the external wall and opposing wall is less than 6 metres.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0180">
+      <atom>
+        designed to extract a continuous airflow through the surrounding habitable spaces (see Paragraph 1.3.7 for passive stack ventilators),
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0181">
+      <atom>
+        located within the external wall or in building elements that are integrated within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0182">
+      <atom>
+        located in building elements that are integrated within the external wall (see Paragraph 1.3.9 for trickle ventilators),
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0183">
+      <atom>
+        and not compromising the privacy of the toilet or
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0184">
+      <atom>
+        and not compromising the privacy of bathroom,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0026">
+      <atom>
+        permanent openings for airflow between the surrounding habitable spaces of no less than 5% of the combined floor area of the spaces,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0027">
+      <atom>
+        a combined distance between the external wall and furthest opposing wall of less than 10 metres.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0152">
+      <atom>
+        a permanent opening to a kitchen,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0185">
+      <atom>
+        a permanent opening to a bathroom,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0186">
+      <atom>
+        a permanent opening to a toilet or
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0187">
+      <atom>
+        a permanent opening to a laundry,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0030">
+      <atom>
+        a distance between the external wall and opposing wall of the habitable spaces of less than 6 metres.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0031">
+      <atom>
+        without openings to the exterior
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0188">
+      <atom>
+        via another habitable space
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0189">
+      <atom>
+        high level
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0190">
+      <atom>
+        low level
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0035">
+      <atom>
+        be designed in accordance with AS/NZS 4740 Section 3,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0036">
+      <atom>
+        be designed to achieve extract airflow rates specified in AS 1668.2 Table B1, using the following parameters:
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0191">
+      <atom>
+          Air Density r =
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0192">
+      <atom>
+        Gravitational Constant g =
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0193">
+      <atom>
+        Temperature Differential DT =
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0194">
+      <atom>
+        Outside Ambient T =
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0037">
+      <atom>
+        without decreasing the performance of the building envelope and
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0195">
+      <atom>
+        decreasing the performance the partition walls of the building for external moisture, fire and acoustics,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0038">
+      <atom>
+        be capable of drawing air
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0042">
+      <atom>
+        have a condensation trap fitted to the part of the duct above the roof level.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0041">
+      <atom>
+        have ventilation ducts and stacks that are insulated in any unheated areas with a minimum thickness of 25 mm
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0198">
+      <atom>
+        have ventilation ducts and stacks that are insulated in any unheated areas of a material having a thermal conductivity of no less than 0.04W/m2K
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0033">
+      <atom>
+        have no connections from spaces
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0121">
+      <atom>
+        i) maintain the fire separation of the fire separated shaft
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0127">
+      <atom>
+        ii) have ducting, downstream of the fire collar, made of non-combustible material, and
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0128">
+      <atom>
+        iii) have connections that contain no more than two bends and do not have any duct that is more than 45° to the vertical, and
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0129">
+      <atom>
+        iv) have the branch connection to the common duct via a fire shunt of 1800 mm in height (see Figure 1), and
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0130">
+      <atom>
+        v) have the fire shunt and the stack located in a fire separated shaft.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0126">
+      <atom>
+        with a pressure-forming intumescent fire collar around a collapsible duct, and
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0124">
+      <atom>
+        iv) be ducting made of non-combustible material,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0034">
+      <atom>
+        unless the common extract duct is the only duct in the fire separated shaft.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0044">
+      <atom>
+        greater than the cross-sectional area of the stack,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0047">
+      <atom>
+        have an opening of no less than 2000 mm2 equivalent aerodynamic area,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0057">
+      <atom>
+        door undercut by 20 mm,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0056">
+      <atom>
+        continuous mechanical extract system is installed
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0058">
+      <atom>
+        intermittent mechanical extract system is installed
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0059">
+      <atom>
+        outdoor air supply shall be designed and equipment installed to comply with NZS 4303, or
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0052">
+      <atom>
+        outdoor air supply shall be designed and equipment installed to comply with AS 1668.2 (excluding Table A1 and Sections 3 and 7),
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0120">
+      <atom>
+        and to provide outdoor air to occupied spaces at the flow rates given in NZS 4303 Table 2,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0060">
+      <atom>
+        air-handling systems shall be installed and maintained to the requirements of AS/NZS 3666.1 and AS/NZS 3666.2,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0062">
+      <atom>
+        outdoor air intakes shall be located to avoid contamination from any local source in accordance with AS 1668.2 Clause 4.3.1 and NZS 4303 Clause 5.5,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0063">
+      <atom>
+        recirculated air systems shall comply with AS 1668.2 Clause 4.5,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0064">
+      <atom>
+        contaminated air discharge systems shall discharge contaminated air in a way that complies with AS 1668.2 Clause 5.10,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0065">
+      <atom>
+        filtration shall comply with AS 1668.2 Clause 4.4,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0066">
+      <atom>
+        commissioning shall comply with CIBSE Code Series A.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0162">
+      <atom>
+        extract ventilation shall:
+          i) be constructed so that any products listed in Clause G4.3.3 are removed, collected or diluted by ventilation rates and methods set out in AS 1668.2 Section 5
+            COMMENT:
+              Commercial kitchen extract ventilation is included in AS 1668.2 Section 5.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0122">
+      <atom>
+        extract ventilation shall:
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0164">
+      <atom>
+        iii) where provided for extract
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0125">
+      <atom>
+        refer to Paragraphs 1.5.2 and 1.5.3.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0069">
+      <atom>
+        maintain the fire separation of the fire separated shaft with a pressure-forming intumescent fire collar around a collapsible duct,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0070">
+      <atom>
+        have ducting, downstream of the fire collar, made of non-combustible material,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0071">
+      <atom>
+        have the branch connection to the common extract duct located in a fire separated shaft,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0072">
+      <atom>
+        have the fire shunt and common extract duct located in a separated shaft.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0074">
+      <atom>
+        be installed in a fire separated shaft,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0135">
+      <atom>
+        unless the common extract duct is the only duct in the fire separated shaft.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0076">
+      <atom>
+        be ducting made of non-combustible material,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0077">
+      <atom>
+        comply with the mechanical ventilation part of AS 1668.2 Section 7.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0078">
+      <atom>
+        incorporating filtration
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0079">
+      <atom>
+        maintained at a positive pressure.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0080">
+      <atom>
+        remove or collect contaminants
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0081">
+      <atom>
+        maintained at negative pressure relative to other spaces in the building.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0061">
+      <atom>
+        Supply air under equal pressure conditions to the burners and
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0084">
+      <atom>
+        Supply air under equal pressure conditions to the draught diverter
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0082">
+      <atom>
+        for appliances burning gas fuel
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0083">
+      <atom>
+        designed to operate under natural draught conditions
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0068">
+      <atom>
+        For non room-sealed appliances having a combined gas input exceeding 1 kW for each m3 of the space in which they are installed,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0085">
+      <atom>
+        be provided with vents, in addition to the ventilation required by Paragraphs 1.1 and 1.2. The vents shall be sized and located according to Paragraphs 2.1.3 to 2.1.8.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0086">
+      <atom>
+        Domestic gas cookers in non room-sealed spaces
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0087">
+      <atom>
+        also used for sleeping
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0088">
+      <atom>
+        permanent venting to the outside.
+      </atom>
+      <description>
+        Vents
+      </description>
+  </term>
+  <term iri="0089">
+      <atom>
+        appropriate to the gas input to the cooker
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0090">
+      <atom>
+        be subject to specific design
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0073">
+      <atom>
+        for spaces vented directly to the outside,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0093">
+      <atom>
+        each with a free ventilation area per kW of gas input (of all appliances in the space) of no less than:
+          a) 1200 mm2
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0136">
+      <atom>
+        for spaces vented via adjacent spaces.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0094">
+      <atom>
+        plant rooms and boiler rooms infrequently occupied by people.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0095">
+      <atom>
+        The vent opening areas given in Paragraph 2.1.3 may be halved
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0096">
+      <atom>
+        vertical dimensions of no less than 50 mm
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0097">
+      <atom>
+        no dimension of less than 6.0 mm in any other direction.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0098">
+      <atom>
+        have their lower edge no more than 100 mm above floor level
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0099">
+      <atom>
+        have their lower edge no less than 75 mm above the top of the draught diverter relief opening.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0100">
+      <atom>
+        A louvred door
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0101">
+      <atom>
+        the bottom of the free area extends to not less than 100 mm above the floor,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0102">
+      <atom>
+        the requisite high-level free area is available from the level of 75 mm above the draught diverter relief opening.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0103">
+      <atom>
+        provided it reaches from floor to ceiling
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0104">
+      <atom>
+        has a total free area equivalent to that required for the two separate vents.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0105">
+      <atom>
+        Mechanical supply with mechanical extraction,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0106">
+      <atom>
+        Mechanical supply with natural exhaust.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0138">
+      <atom>
+        for forced or induced draught appliances, and
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0107">
+      <atom>
+        For each kW of gas consumption (of all appliances in the plant room) provide outdoor air at the rate of:
+          i) 3.6 m3/h
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0139">
+      <atom>
+        for appliances with atmospheric burners,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0108">
+      <atom>
+        Remove exhaust air from the room either:
+          i) mechanically at one third the inlet rate, or
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0141">
+      <atom>
+        Remove exhaust air from the room either:
+          ii) naturally via high-level openings having a free ventilation area of no less than 600 mm2 per kW of total gas consumption for all appliances in the room.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0110">
+      <atom>
+        The cross-sectional area of a natural draught flue system external to the appliances,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0075">
+      <atom>
+        no less than the cross-sectional area of the appliance outlet,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0111">
+      <atom>
+        The flue designed to comply with AS/NZS 5601.1, section 6.7 and Appendix H, and (Amend 3 Feb 2014)
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0112">
+      <atom>
+        If a draught diverter is not fitted:
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0142">
+      <atom>
+        unless the discharge at other locations can be achieved without hazard to persons, property or appliance operation,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0143">
+      <atom>
+        i) flue products discharged to the atmosphere only at the flue terminal,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0144">
+      <atom>
+        ii) a method of automatically shutting down the main burners of forced or induced draught appliances, should the normal free discharge of the flue be interrupted.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0113">
+      <atom>
+        Draught diverter installations shall discharge the total
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0114">
+      <atom>
+        including excess air and draught diverter dilution air, at the flue terminal without spillage from the skirt of the draught diverter.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0137">
+      <atom>
+        on a dwelling
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0115">
+      <atom>
+        Outlets from natural draught flues or chimneys, positioned relative to surrounding construction to avoid wind causing down draughts in the flue,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0116">
+      <atom>
+        Flue pipes which extend through the roof, terminated no closer than:
+          i) 500 mm to the nearest part of any roof,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0145">
+      <atom>
+        Flue pipes which extend through the roof, terminated no closer than:
+          ii) 2.0 m to the roof level of a flat roof intended for personal or public use, and
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0146">
+      <atom>
+        Flue pipes which extend through the roof, terminated no closer than:
+          iii) 500 mm above any parapet,
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0117">
+      <atom>
+        Flues which terminate on the wall of a building located clear of inlets for outside air in accordance with the minimum clearances specified in AS/NZS 5601.1, section 6.9 and Figure 6.2.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+  <term iri="0119">
+      <atom>
+        AS/NZS 5601.1 Sections 1, 3, 4, 5 and 6 and Appendices A – M and O - R is an Acceptable Solution, but may exceed the performance criteria of NZBC G4.
+      </atom>
+      <description>
+
+      </description>
+  </term>
+</vocabulary>
