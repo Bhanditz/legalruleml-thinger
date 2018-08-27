@@ -40,6 +40,8 @@ data Statement_ed = Statement_ed { statement_category :: StatementCategory, stre
 data LogicData = LogicText Text | LogicCollection [Logic] | LogicEmpty deriving (Show, Eq)
 data Logic = Logic { name :: Text, child :: LogicData } deriving (Show, Eq)
 
+data ATerm = ATerm { term_iri :: Maybe Text, term_atom :: Text, term_description :: Maybe Text }
+
 all_statement_er = multi (isElem >>> ((hasName "lrml:PrescriptiveStatement") <+> (hasName "lrml:ConstitutiveStatement"))) >>>
   statement_er
 
@@ -107,6 +109,12 @@ metadataTable :: Table
 
 metadataTable = table "Metadata" (p2 (tableColumn "id", tableColumn "text"))
 
+termTable :: Table
+      (Maybe (Column SqlInt4), Maybe (Column SqlText), Column SqlText, Maybe (Column SqlText))
+      ((Column SqlInt4), Column SqlText, Column SqlText, Column SqlText)
+
+termTable = table "Metadata" (p4 (tableColumn "id", tableColumn "iri", tableColumn "atom", tableColumn "description"))
+
 
 --insertStatements :: [Statement_ed] -> IO ()
 --insertStatements statements = 
@@ -119,6 +127,19 @@ returns (id_, _, _, _, _) = id_
 returnsF :: (Column SqlInt4, Column SqlText, Column SqlText, Column (SqlArray SqlInt4)) -> Column SqlInt4
 returnsF (id_, _, _, _) = id_ 
 
+returnsTerm :: (Column SqlInt4, Column SqlText, Column SqlText, Column SqlText) -> Column SqlInt4
+returnsTerm (id_, _, _, _) = id_ 
+
+termsBuilder :: [ATerm] -> (Insert [Int])
+termsBuilder terms =
+   Insert
+     { iTable        = termTable
+     , iRows         = map (\term -> (Nothing, (fmap (\x -> sqlString (unpack x)) (term_iri term)), (sqlString $ unpack $ term_atom term), fmap (\x -> sqlString (unpack x)) (term_description term))) terms
+     , iReturning    = rReturning returnsTerm
+     , iOnConflict   = Nothing
+     }
+
+
 statementBuilder :: Statement_ed -> [Int] -> (Insert [Int])
 statementBuilder s c =
    Insert
@@ -127,6 +148,12 @@ statementBuilder s c =
      , iReturning    = rReturning returns
      , iOnConflict   = Nothing
      }
+
+
+insertTerms :: [ATerm] -> PGS.Connection -> IO ()
+insertTerms terms conn = do
+    runInsert_ conn (termsBuilder terms)
+    return ()
 
 -- Before we can build a statement, we need the formula ids
 -- So, from a [Statement_ed] we need to generate formula ids. Unfortunately we can't just map, as formulas can contain other formulas, and we don't know the ids until after they get inserted.
