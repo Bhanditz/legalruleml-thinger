@@ -12,7 +12,7 @@ import Data.List
 import Data.Text
 import qualified Database.PostgreSQL.Simple as PGS
 
-data Command = PrintOut Text | PopulateDatabase Text (Text, Text, Text, Int) | InitDatabase (Text, Text, Text, Int)
+data Command = PrintOut Text | PopulateDatabase Text (Text, Text, Text, Int, Bool) | InitDatabase (Text, Text, Text, Int, Bool)
 
 withInfo :: Parser a -> String -> ParserInfo a
 withInfo opts desc = info (helper <*> opts) $ progDesc desc 
@@ -28,13 +28,14 @@ fileBit = runA $ proc () -> do
             file <- asA (argument str (metavar "FILE" <> help "File to parse")) -< ()
             returnA -< pack file
 
-dbBit :: OA.Parser (Text, Text, Text, Int)
+dbBit :: OA.Parser (Text, Text, Text, Int, Bool)
 dbBit = runA $ proc () -> do
             db <- asA (argument str (metavar "DBNAME" <> help "Database to connect to")) -< ()
             user <- asA (argument str (metavar "USER" <> help "User name (db role)")) -< ()
             password <- asA (argument str (metavar "PASSWORD" <> help "Password")) -< ()
             port <- asA (argument auto (metavar "PORT" <> help "Port to connect on")) -< ()
-            returnA -< (pack db, pack user, pack password, port)
+            soup <- asA (switch (short 's' <> long "soup" <> help "Try to parse tag soup")) -< ()
+            returnA -< (pack db, pack user, pack password, port, soup)
 
 printCmd :: OA.Parser Command
 printCmd =  runA $ proc () -> do
@@ -51,15 +52,22 @@ initCmd = InitDatabase
            <$> dbBit
 
 
-getData :: Text -> IO [([Statement_ed], [ATerm])]
-getData fileName = do
-    runX (readDocument [withRemoveWS yes] (unpack fileName) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_stuff)
+getData :: Bool -> Text -> IO [([Statement_ed], [ATerm])]
+getData soup fileName = do
+    if soup then
+      runX (readDocument [withRemoveWS yes] (unpack fileName) >>> getChildren >>> all_stuff)
+    else
+      runX (readDocument [withRemoveWS yes] (unpack fileName) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_stuff)
+
 
 populateDb :: ([Statement_ed], [ATerm]) -> Text -> Text -> Text -> Int -> IO ()
 populateDb (statements, terms) dbName user password port = do
     conn <- dbConnection dbName user password port
+    print "Inserting statements."
     insertStatements statements conn
+    print "Inserting terms."
     insertTerms      terms conn
+    print "Done inserting."
 
 initDb :: Text -> Text -> Text -> Int -> IO ()
 initDb dbName user password port = do
@@ -75,13 +83,13 @@ real_main :: Command -> IO ()
 real_main options =
     do
       case options of
-        InitDatabase (db, user, password, port) -> do
+        InitDatabase (db, user, password, port, _) -> do
             initDb db user password port
         PrintOut         file    -> do
-            stuff <- getData file
+            stuff <- getData False file
             print stuff
-        PopulateDatabase file (db, user, password, port) -> do
-            stuff <- getData file
+        PopulateDatabase file (db, user, password, port, soup) -> do
+            stuff <- getData soup file
             mapM_ (\thing -> populateDb thing db user password port) stuff
 
 main :: IO ()

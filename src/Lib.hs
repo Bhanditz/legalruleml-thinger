@@ -126,7 +126,7 @@ termTable :: Table
       (Maybe (Column SqlInt4), Maybe (Column SqlText), Column SqlText, Maybe (Column SqlText))
       ((Column SqlInt4), Column SqlText, Column SqlText, Column SqlText)
 
-termTable = table "Metadata" (p4 (tableColumn "id", tableColumn "iri", tableColumn "atom", tableColumn "description"))
+termTable = table "Term" (p4 (tableColumn "id", tableColumn "iri", tableColumn "atom", tableColumn "description"))
 
 
 --insertStatements :: [Statement_ed] -> IO ()
@@ -143,14 +143,14 @@ returnsF (id_, _, _, _) = id_
 returnsTerm :: (Column SqlInt4, Column SqlText, Column SqlText, Column SqlText) -> Column SqlInt4
 returnsTerm (id_, _, _, _) = id_ 
 
-termsBuilder :: [ATerm] -> (Insert [Int])
-termsBuilder terms =
+termsBuilder :: [ATerm] -> [(Insert [Int])]
+termsBuilder terms = map (\term ->
    Insert
      { iTable        = termTable
-     , iRows         = map (\term -> (Nothing, (fmap (\x -> sqlString (unpack x)) (term_iri term)), (sqlString $ unpack $ term_atom term), fmap (\x -> sqlString (unpack x)) (term_description term))) terms
+     , iRows         = [(Nothing, (fmap (\x -> sqlString (unpack x)) (term_iri term)), (sqlString $ unpack $ term_atom term), fmap (\x -> sqlString (unpack x)) (term_description term))]
      , iReturning    = rReturning returnsTerm
      , iOnConflict   = Nothing
-     }
+     }) terms
 
 
 statementBuilder :: Statement_ed -> [Int] -> (Insert [Int])
@@ -165,7 +165,7 @@ statementBuilder s c =
 
 insertTerms :: [ATerm] -> PGS.Connection -> IO ()
 insertTerms terms conn = do
-    runInsert_ conn (termsBuilder terms)
+    mapM_ (runInsert_ conn) (termsBuilder terms)
     return ()
 
 -- Before we can build a statement, we need the formula ids
