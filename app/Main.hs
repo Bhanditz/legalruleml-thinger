@@ -73,7 +73,7 @@ initDb :: Text -> Text -> Text -> Int -> IO ()
 initDb dbName user password port = do
     conn <- dbConnection dbName user password port
     PGS.execute_ conn "CREATE TABLE \"Statement\" (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, category TEXT NOT NULL, strength TEXT, key TEXT, formula integer[]);"
-    PGS.execute_ conn "CREATE TABLE \"Formula\" (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, name TEXT NOT NULL, text TEXT, children integer[]);"
+    PGS.execute_ conn "CREATE TABLE \"Formula\" (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, name TEXT NOT NULL, text TEXT, children integer[], iri TEXT);"
     PGS.execute_ conn "CREATE TABLE \"Metadata\" (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, text TEXT NOT NULL);"
     PGS.execute_ conn "CREATE TABLE \"Term\" (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, iri TEXT, atom TEXT NOT NULL, description TEXT);"
     return ()

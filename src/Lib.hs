@@ -38,7 +38,7 @@ data StatementCategory = PrescriptiveStatement | ConstitutiveStatement deriving 
 data Statement_ed = Statement_ed { statement_category :: StatementCategory, strength, key :: Maybe Text, formula :: Maybe [Logic]} deriving (Show, Eq)
 
 data LogicData = LogicText Text | LogicCollection [Logic] | LogicEmpty deriving (Show, Eq)
-data Logic = Logic { name :: Text, child :: LogicData } deriving (Show, Eq)
+data Logic = Logic { name :: Text, child :: LogicData, formula_iri :: Maybe Text} deriving (Show, Eq)
 
 data ATerm = ATerm { term_iri :: Maybe Text, term_atom :: Text, term_description :: Maybe Text } deriving (Show, Eq)
 
@@ -62,11 +62,11 @@ statement_er = proc stmt -> do
                         formula = formula }
 
 formulas = proc parent -> do
-                  logics <- listA (getChildren >>> (getName &&& (isElem >>> (proc elem -> do
+                  logics <- listA (getChildren >>> (getName &&& (withDefault (getAttrl >>> hasName "iri" >>> getChildren >>> getText >>> arr (\x -> Just (pack x))) Nothing) &&& (isElem >>> (proc elem -> do
                           text       <- withDefault (getChildren >>> (getText >>> arr (\x -> Just (LogicText (pack x))))) Nothing -< elem
                           subformula <- withDefault (formulas >>> arr (\x -> if x == [] then Just LogicEmpty else Just (LogicCollection x))) Nothing -< elem
                           returnA -< (fromMaybe LogicEmpty $ mplus text subformula)))) >>>
-                      arr (\x -> Logic { name = pack (fst x), child = snd x })) -< parent
+                      arr (\(name, (iri, child)) -> Logic { name = pack name, child = child, formula_iri = iri })) -< parent
                   returnA -< logics
 
 
@@ -111,10 +111,10 @@ statementTable :: Table
 statementTable = table "Statement" (p5 (tableColumn "id", tableColumn "category", tableColumn "strength", tableColumn "key", tableColumn "formula"))
 
 formulaTable :: Table
-      (Maybe (Column SqlInt4), Column SqlText, Maybe (Column SqlText), Maybe (Column (SqlArray SqlInt4)))
-      ((Column SqlInt4), Column SqlText, (Column SqlText), (Column (SqlArray SqlInt4)))
+      (Maybe (Column SqlInt4), Column SqlText, Maybe (Column SqlText), Maybe (Column (SqlArray SqlInt4)), Maybe (Column SqlText))
+      ((Column SqlInt4), Column SqlText, (Column SqlText), (Column (SqlArray SqlInt4)), Column SqlText)
 
-formulaTable = table "Formula" (p4 (tableColumn "id", tableColumn "name", tableColumn "text", tableColumn "children"))
+formulaTable = table "Formula" (p5 (tableColumn "id", tableColumn "name", tableColumn "text", tableColumn "children", tableColumn "iri"))
 
 metadataTable :: Table
       (Maybe (Column SqlInt4), Column SqlText)
@@ -137,8 +137,8 @@ termTable = table "Term" (p4 (tableColumn "id", tableColumn "iri", tableColumn "
 returns :: (Column SqlInt4, Column SqlText, Column SqlText, Column SqlText, Column (SqlArray SqlInt4)) -> Column SqlInt4
 returns (id_, _, _, _, _) = id_ 
 
-returnsF :: (Column SqlInt4, Column SqlText, Column SqlText, Column (SqlArray SqlInt4)) -> Column SqlInt4
-returnsF (id_, _, _, _) = id_ 
+returnsF :: (Column SqlInt4, Column SqlText, Column SqlText, Column (SqlArray SqlInt4), Column SqlText) -> Column SqlInt4
+returnsF (id_, _, _, _, _) = id_ 
 
 returnsTerm :: (Column SqlInt4, Column SqlText, Column SqlText, Column SqlText) -> Column SqlInt4
 returnsTerm (id_, _, _, _) = id_ 
@@ -195,7 +195,8 @@ formulaBuilder formula subformulas =
                          , case child formula of
                                         LogicEmpty        -> Nothing
                                         LogicText _       -> Nothing
-                                        LogicCollection _ -> Just $ sqlArray sqlInt4 subformulas)]
+                                        LogicCollection _ -> Just $ sqlArray sqlInt4 subformulas
+                         , fmap (\x -> sqlString (unpack x)) (formula_iri formula))]
      , iReturning    = rReturning returnsF
      , iOnConflict   = Nothing
      }
