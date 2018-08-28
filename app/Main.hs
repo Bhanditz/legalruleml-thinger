@@ -51,14 +51,15 @@ initCmd = InitDatabase
            <$> dbBit
 
 
-getData :: Text -> IO [Statement_ed]
+getData :: Text -> IO [([Statement_ed], [ATerm])]
 getData fileName = do
-    runX (readDocument [withRemoveWS yes] (unpack fileName) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_statement_er)
+    runX (readDocument [withRemoveWS yes] (unpack fileName) >>> getChildren >>> isElem >>> hasName "lrml:LegalRuleML" >>> all_stuff)
 
-populateDb :: [Statement_ed] -> Text -> Text -> Text -> Int -> IO ()
-populateDb stuff dbName user password port = do
+populateDb :: ([Statement_ed], [ATerm]) -> Text -> Text -> Text -> Int -> IO ()
+populateDb (statements, terms) dbName user password port = do
     conn <- dbConnection dbName user password port
-    insertStatements stuff conn
+    insertStatements statements conn
+    insertTerms      terms conn
 
 initDb :: Text -> Text -> Text -> Int -> IO ()
 initDb dbName user password port = do
@@ -81,7 +82,7 @@ real_main options =
             print stuff
         PopulateDatabase file (db, user, password, port) -> do
             stuff <- getData file
-            populateDb stuff db user password port
+            mapM_ (\thing -> populateDb thing db user password port) stuff
 
 main :: IO ()
 main = execParser opts >>= real_main

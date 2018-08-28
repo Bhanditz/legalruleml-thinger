@@ -1,7 +1,7 @@
 {-# Language TemplateHaskell, QuasiQuotes, FlexibleContexts, DeriveDataTypeable, Haskell2010, OverloadedStrings, Arrows, NoMonomorphismRestriction, LambdaCase #-}
 
 module Lib
-    ( all_statement_er, Statement_ed, formulas, insertStatements, dbConnection
+    ( all_statement_er, Statement_ed, all_term_er, ATerm, all_stuff, formulas, insertStatements, insertTerms, dbConnection
     ) where
 
 import Prelude hiding (sum)
@@ -40,7 +40,12 @@ data Statement_ed = Statement_ed { statement_category :: StatementCategory, stre
 data LogicData = LogicText Text | LogicCollection [Logic] | LogicEmpty deriving (Show, Eq)
 data Logic = Logic { name :: Text, child :: LogicData } deriving (Show, Eq)
 
-data ATerm = ATerm { term_iri :: Maybe Text, term_atom :: Text, term_description :: Maybe Text }
+data ATerm = ATerm { term_iri :: Maybe Text, term_atom :: Text, term_description :: Maybe Text } deriving (Show, Eq)
+
+all_stuff = proc in_stuff -> do
+                   statements <- listA all_statement_er -< in_stuff
+                   terms      <- listA all_term_er      -< in_stuff
+                   returnA -< (statements, terms)
 
 all_statement_er = multi (isElem >>> ((hasName "lrml:PrescriptiveStatement") <+> (hasName "lrml:ConstitutiveStatement"))) >>>
   statement_er
@@ -71,6 +76,14 @@ statement_type = \case
                            "lrml:ConstitutiveStatement"  -> ConstitutiveStatement
                            a                             -> error ("Not a statement:" ++ (unpack a))
 
+
+all_term_er = multi (isElem >>> hasName "vocabulary") >>> getChildren >>> isElem >>> hasName "term" >>> term_er
+
+term_er = proc term -> do
+                 iri <- single (withDefault (getAttrl >>> hasName "iri" >>> getChildren >>> getText >>> arr (\x -> Just (pack x))) Nothing) -< term
+                 atom <- single (withDefault (getChildren >>> isElem >>> hasName "atom" >>> getChildren >>> isText >>> getText) "") -< term
+                 description <- single (withDefault (getChildren >>> isElem >>> hasName "description" >>> getChildren >>> isText >>> getText >>> arr (\x -> Just (pack x))) Nothing) -< term
+                 returnA -< ATerm { term_iri=iri, term_atom=pack atom, term_description=description }
 
 -- db housekeeping
 
